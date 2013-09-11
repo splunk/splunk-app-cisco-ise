@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nav>
+	<collection label="Splunk for Cisco ISE">
+		<view name="ise_overview" default="true" />
+	</collection>
+<collection label="Search">
+		<a href="flashtimeline">Timeline</a>
+		<view name="search_ip_profile" />
+	</collection>
+</nav>
