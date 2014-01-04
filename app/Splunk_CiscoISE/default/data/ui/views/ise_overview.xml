@@ -1,106 +1,176 @@
-<view autoCancelInterval="90" decomposeIntentions="false" isPersistable="true" isSticky="true" isVisible="true" objectMode="viewconf" onunloadCancelJobs="true" stylesheet="dashboard2.css" template="dashboard.html">
-  <label>Identity Services Overview</label>
-  <module name="AccountBar" layoutPanel="appHeader"/>
-  <module name="AppBar" layoutPanel="navigationHeader"/>
-  <module name="Message" layoutPanel="messaging">
-    <param name="maxSize">1</param>
-    <param name="clearOnJobDispatch">True</param>
-    <param name="filter">*</param>
-    <param name="level">error</param>
-  </module>
-  <module name="TitleBar" layoutPanel="viewHeader">
-    <param name="actionsMenuFilter">dashboard</param>
-  </module>
-  <module name="TimeRangePicker" layoutPanel="panel_row1_col1" group="Select time range">
-    <param name="selected">Last 24 hours</param>
-    <param name="searchWhenChanged">True</param>
-    <param name="groupLabel">Select time range</param>
-    <module name="JobProgressIndicator"/>
-    <module name="HiddenSearch" layoutPanel="panel_row2_col1" autoRun="True">
-      <param name="search">sourcetype=Cisco:ISE:Syslog | fillnull action ADDomain Address AuthenticationMethod AuthenticationResult AuthorizationPolicyMatchedRule Calling_Station_ID DestinationIPAddress DestinationPort DeviceRegistrationStatus EndpointIdentityGroup EndpointNADAddress EndpointOUI EndpointPolicy EndPointPolicyID host HostIdentityGroup IdentityGroup IdentityGroupID log_type NetworkDeviceGroups NetworkDeviceName source sourcetype State Type UseCase User_Name UserName UserType value=## | stats count by action ADDomain Address AuthenticationMethod AuthenticationResult AuthorizationPolicyMatchedRule Calling_Station_ID DestinationIPAddress DestinationPort DeviceRegistrationStatus EndpointIdentityGroup EndpointNADAddress EndpointOUI EndpointPolicy EndPointPolicyID host HostIdentityGroup IdentityGroup IdentityGroupID log_type NetworkDeviceGroups NetworkDeviceName source sourcetype State Type UseCase User_Name UserName UserType _time</param>
-      <module name="HiddenPostProcess" layoutPanel="panel_row2_col1">
-        <param name="search">timechart sum(count) by log_type</param>
-        <module name="HiddenChartFormatter">
-          <param name="chart.stackMode">stacked</param>
-          <param name="chart">column</param>
-          <param name="legend.placement">bottom</param>
-          <param name="chartTitle">ISE Events Over Time</param>
-          <module name="JSChart">
-            <param name="width">100%</param>
-            <module name="ConvertToDrilldownSearch">
-              <module name="ViewRedirector">
-                <param name="viewTarget">flashtimeline</param>
-              </module>
-            </module>
-          </module>
-        </module>
-      </module>
-      <module name="HiddenPostProcess" layoutPanel="panel_row3_col1">
-        <param name="search">search AuthenticationMethod!="##" | top limit=10 AuthenticationMethod</param>
-        <module name="HiddenChartFormatter">
-          <param name="chart">pie</param>
-          <param name="legend.placement">bottom</param>
-          <param name="chartTitle">Top 10 Authentication Methods</param>
-          <module name="JSChart">
-            <param name="width">100%</param>
-            <module name="ConvertToDrilldownSearch">
-              <module name="ViewRedirector">
-                <param name="viewTarget">flashtimeline</param>
-              </module>
-            </module>
-          </module>
-        </module>
-      </module>
-      <module name="HiddenPostProcess" layoutPanel="panel_row3_col2">
-        <param name="search">search EndpointIdentityGroup!="##" | top limit=10 EndpointIdentityGroup</param>
-        <module name="HiddenChartFormatter">
-          <param name="chart">pie</param>
-          <param name="legend.placement">bottom</param>
-          <param name="chartTitle">Top 10 Endpoint Identity Groups</param>
-          <module name="JSChart">
-            <param name="width">100%</param>
-            <module name="ConvertToDrilldownSearch">
-              <module name="ViewRedirector">
-                <param name="viewTarget">flashtimeline</param>
-              </module>
-            </module>
-          </module>
-        </module>
-      </module>
-      <module name="HiddenPostProcess" layoutPanel="panel_row3_col3">
-        <param name="search">search Address!="##" | top limit=10 Address</param>
-        <module name="HiddenChartFormatter">
-          <param name="chart">pie</param>
-          <param name="legend.placement">bottom</param>
-          <param name="chartTitle">Top 10 Source Addresses</param>
-          <module name="JSChart">
-            <param name="width">100%</param>
-            <module name="ConvertToDrilldownSearch">
-              <module name="ViewRedirector">
-                <param name="viewTarget">flashtimeline</param>
-              </module>
-            </module>
-          </module>
-        </module>
-      </module>
-      <module name="HiddenPostProcess" layoutPanel="panel_row5_col1">
-        <param name="search">table action ADDomain Address AuthenticationMethod AuthenticationResult AuthorizationPolicyMatchedRule Calling_Station_ID DestinationIPAddress DestinationPort DeviceRegistrationStatus EndpointIdentityGroup EndpointNADAddress EndpointOUI EndpointPolicy EndPointPolicyID host HostIdentityGroup IdentityGroup IdentityGroupID log_type NetworkDeviceGroups NetworkDeviceName source sourcetype State Type UseCase User_Name UserName UserType</param>
-        <module name="Paginator">
-          <param name="count">20</param>
-          <param name="entityName">results</param>
-          <module name="SimpleResultsTable">
-            <param name="displayMenu">True</param>
-            <param name="entityName">results</param>
-            <param name="displayRowNumbers">False</param>
-            <param name="drilldown">row</param>
-            <module name="ConvertToDrilldownSearch">
-              <module name="ViewRedirector">
-                <param name="viewTarget">flashtimeline</param>
-              </module>
-            </module>
-          </module>
-        </module>
-      </module>
-    </module>
-  </module>
-</view>
+<form script="prettify.js" stylesheet="application.css">
+  <label>Identity Services Engine Overview</label>
+  <description/>
+  <fieldset autoRun="true" submitButton="false">
+    <input type="time" searchWhenChanged="true">
+      <default/>
+    </input>
+  </fieldset>
+  <row>
+    <single>
+      <title>Total Endpoints</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type="Passed_Authentications" OR log_type="Profile" |  `clean_mac_addr(Calling_Station_ID)` | stats dc(Calling_Station_ID)</searchString>
+      <earliestTime>0</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="underLabel">Total Number of Devices Seen (All Time)</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <title>Active Endpoints</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type="RADIUS_Accounting" | `clean_mac_addr(Calling_Station_ID)` | transaction keepevicted=true endswith=eval(Acct_Status_Type="Stop") Acct_Session_Id | search Acct_Status_Type!="Stop" | stats dc(User_Name)</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="underLabel">Number of Devices Active on Network</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <title>Active Guests</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type=Passed_Authentications IdentityGroup="*guest*" | stats distinct_count(UserName)</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="underLabel">Number of Active Guest Users</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <title>Profiled Endpoints</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type=Profiler | `clean_mac_addr(EndpointMacAddress)` | stats distinct_count(EndpointMacAddress)</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="underLabel">Number of Devices Profiled</option>
+      <option name="linkView">search</option>
+    </single>
+  </row>
+  <row>
+    <chart>
+      <title>Authentication Methods</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type=Passed_Authentications | `clean_mac_addr(Calling_Station_ID)` | `clean_names(EndPointMatchedProfile)` | dedup Calling_Station_ID
+| top AuthenticationMethod</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Endpoint Distribution</title>
+      <searchString>sourcetype="Cisco:ISE:Syslog" log_type="Passed_Authentications" | `clean_mac_addr(Calling_Station_ID)` | `clean_names(EndPointMatchedProfile)` | dedup Calling_Station_ID | top EndPointMatchedProfile</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Passed Authentications</title>
+      <searchString>sourcetype="Cisco:ISE:Syslog" log_type="Passed_Authentications" NOT UserName="#*" NOT UserName="" | top UserName</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">bar</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisStart</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="charting.axisTitleX.text">User Name</option>
+      <option name="charting.axisTitleY.text">Number of Logins</option>
+    </chart>
+    <chart>
+      <title>Failed Attempts</title>
+      <searchString>sourcetype=Cisco:ISE:Syslog log_type="Failed_Attempts" NOT UserName="#*" NOT UserName="" | top UserName</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">bar</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="charting.axisTitleY.text">Number of Attempts</option>
+      <option name="charting.axisTitleX.text">User Name</option>
+    </chart>
+  </row>
+  <row>
+    <table>
+      <title>Real-Time Authentications -4h</title>
+      <searchString>sourcetype="Cisco:ISE:Syslog" log_type="Passed_Authentications" NOT UserName="#*" NOT UserName=""  | `clean_mac_addr(Calling_Station_ID)` | `clean_names(EndPointMatchedProfile)` | `clean_names(AuthorizationPolicyMatchedRule)` | table _time, UserName, Calling_Station_ID, EndPointMatchedProfile, NetworkDeviceName, NAS_Port_Id, AuthorizationPolicyMatchedRule</searchString>
+      <earliestTime>-4h@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="list.drilldown">full</option>
+      <option name="list.wrap">1</option>
+      <option name="maxLines">5</option>
+      <option name="raw.drilldown">full</option>
+      <option name="rowNumbers">false</option>
+      <option name="table.drilldown">1</option>
+      <option name="table.sortDirection">asc</option>
+      <option name="table.wrap">1</option>
+      <option name="type">list</option>
+      <option name="wrap">true</option>
+      <option name="displayRowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">row</option>
+      <option name="count">20</option>
+    </table>
+  </row>
+</form>
