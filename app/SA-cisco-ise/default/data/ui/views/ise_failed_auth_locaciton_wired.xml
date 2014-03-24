@@ -1,0 +1,118 @@
+<form>
+  <label>ISE Failed Wired Authentications</label>
+
+  <fieldset autoRun="false">
+    
+    <input type="dropdown" token="location">
+      <label>Location:</label>
+      <populatingSearch fieldForValue="Location" fieldForLabel="Location">
+	<![CDATA[| inputlookup ISE_Locations.csv]]>
+      </populatingSearch>
+    </input>
+    
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+    
+  </fieldset>
+  
+  <row>
+    <html>
+      <p>These dashboard and these panels illustrates extracting failed 802.1X wired user information from a specific location.</p>
+    </html>
+  </row>
+
+  <row>
+    <chart>
+      <title>Failed Authentications Wired - $location$</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" |
+	chart count by AuthenticationMethod |
+	rename AuthenticationMethod AS "Authentication Method"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <chart>
+      <title>Failed Reason</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" |
+        chart count by FailureReason |
+	rename FailureReason AS "Failure Reason"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
+  
+  <row>
+    <table>
+      <title>Failed Authentications by User Name</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" |
+        stats count by UserName FailureReason |
+	table UserName FailureReason |
+        rename UserName AS "User Name" FailureReason AS "Failure Reason"
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>EAP-TLS</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" EapAuthentication="EAP-TLS" |
+        stats count by AuthenticationMethod EapAuthentication UserName EndPointMACAddress FailureReason |
+        `format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>EAP Chaining Attempts</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" EapAuthentication="EAP-TLS" EapTunnel="EAP-FAST" |
+        stats count by AuthenticationMethod EapAuthentication EapTunnel UserName Address EndPointMACAddress FailureReason UseCase EapChainingResult |
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>Authentication Failure Details</title>
+      <searchString>
+        eventtype=cisco-ise-failed-authentication Location="$location$" NAS_Port_Type="Ethernet" EapAuthentication="EAP-TLS" |
+        stats count by AuthenticationMethod EapAuthentication UserName Address EndPointMACAddress FailureReason NetworkDeviceGroups NAS_Port_Id NAS_Port |
+	`format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+</form>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Splunk_TA_cisco-ise" default="package">
+	<property name="APP" value="Splunk_TA_cisco-ise"/>
+
+	<property name="ISEVIEWS" value="SA-cisco-ise"/>
+
+	<property name="VERSION" value="2.0.0"/>
+	<buildnumber/>
+
+	<property name="build.dir" value="build"/>
+	<property name="addon.dir" value="build/${APP}/appserver/addons" />
+	<property name="dist.file" value="${build.dir}/dist/${APP}-${VERSION}.tar.gz"/>
+	
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="package" depends="build,build-views">
+		<mkdir dir="${build.dir}/dist" />
+		<tar destfile="${dist.file}" longfile="gnu" compression="gzip">
+			<tarfileset dir="${build.dir}" filemode="755" username="splunk" group="splunk">
+				<include name="${APP}/**"/>
+			</tarfileset>
+		</tar>
+	</target>
+
+	<target name="build" depends="build-app,build-views">
+	</target>
+
+	<target name="build-views" depends="build-iseviews">
+	</target>
+
+	<target name="build-app">
+		<mkdir dir="${build.dir}/${APP}"/>
+
+		<copy todir="${build.dir}/${APP}" filtering="off" verbose="on">
+			<fileset dir="${APP}">
+				<exclude name="**/.*" />
+				<exclude name="local/.*" />
+				<exclude name="**/*-gist" />
+				<exclude name="**/*.xcf" />
+				<exclude name="**/*.d/**" />
+				<exclude name="default/app.conf" />
+			</fileset>
+		</copy>
+
+		<echo>Build Number is ${build.number}</echo>
+		<copy todir="${build.dir}/${APP}/default" file="${APP}/default/app.conf" verbose="on">
+			<filterset>
+				<filter token="BUILDNUMBER" value="${build.number}" />
+			</filterset>
+			<filterset>
+				<filter token="VERSION" value="${VERSION}" />
+			</filterset>
+		</copy>
+	</target>
+
+	<target name="build-iseviews">
+		<mkdir dir="${addon.dir}"/>
+		
+		<copy todir="${addon.dir}/${ISEVIEWS}" filtering="off" verbose="on">
+			<fileset dir="${ISEVIEWS}">
+				<exclude name="**/.*" />
+				<exclude name="local/**" />
+				<exclude name="**/*-gist" />
+				<exclude name="**/*.xcf" />
+				<exclude name="**/*.d/**" />
+				<exclude name="default/app.conf" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${addon.dir}/${ISEVIEWS}/default" file="${ISEVIEWS}/default/app.conf" verbose="on">
+			<filterset>
+				<filter token="BUILDNUMBER" value="${build.number}"/>
+			</filterset>
+			<filterset>
+				<filter token="VERSION" value="${VERSION}"/>
+			</filterset>
+		</copy>
+	</target>
+
+
+</project>
+

@@ -1,0 +1,81 @@
+<form>
+  <label>ISE Passed Virtual Authentications</label>
+
+  <fieldset autoRun="false">
+    
+    <input type="dropdown" token="location">
+      <label>Location:</label>
+      <populatingSearch fieldForValue="Location" fieldForLabel="Location">
+	<![CDATA[| inputlookup ISE_Locations.csv]]>
+      </populatingSearch>
+    </input>
+    
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+    
+  </fieldset>
+  
+  <row>
+    <html>
+      <p>This dashboard and these panels illustrate extracting passed 802.1X virtual user information from a specific location.</p>
+    </html>
+  </row>
+
+  <row grouping="1,2">
+    <chart>
+      <title>Passed Authentications Virtual - $location$</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Virtual" |
+        chart count by AuthenticationMethod |
+	rename AuthenticationMethod AS "Authentication Method"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  
+    <table>
+      <title>Passed Total Authentications</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Virtual" |
+        stats count by AuthenticationMethod |
+        rename AuthenticationMethod AS "Authentication Method" count AS Count
+      </searchString>
+    </table>
+
+    <table>
+      <title>Authenticated Users</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Virtual" |
+        stats count by UserName |
+        rename UserName AS "User Name"
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>Authenticated Users Overview</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Virtual" |
+        stats count by UserName Calling_Station_ID Tunnel_Client_Endpoint PIX7x_Client_Type PIX7x_Tunnel_Group_Name NetworkDeviceName |
+        `format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+</form>

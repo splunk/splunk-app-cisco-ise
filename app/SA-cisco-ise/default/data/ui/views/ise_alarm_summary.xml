@@ -1,0 +1,65 @@
+<form script="ise_alarm_summary.js" stylesheet="ise_alarm_summary.css">
+  <label>ISE Alarms</label>
+
+  <fieldset autoRun="true">
+    
+    <input type="dropdown" token="alarm_type" searchWhenChanged="true">
+      <label>Alarm Type:</label>
+      <choice value="*">All</choice>
+      <choice>INFO</choice>
+      <choice>WARN</choice>
+      <choice>CRITICAL</choice>
+      <default>*</default>
+    </input>
+    
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+    
+  </fieldset>
+  
+  <row>
+    <html>
+      <p>This dashboard and these panel display Alarm events and provide operational views.</p>
+    </html>
+  </row>
+
+  <row>
+    <chart>
+      <title>Alarms Operational View</title>
+      <searchString>
+        eventtype=cisco-ise-alarm  |
+        stats count by alarm_type |
+        rename alarm_type AS "Alarm Type"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+  </row>
+  
+  <row>
+    <table id="tblAlarmSummary">
+      <title>Alarm Details</title>
+      <searchString>
+	eventtype=cisco-ise-alarm alarm_type="$alarm_type$" |
+	stats count by _time ise_servername alarm_type alarm_description |
+	`format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+</form>

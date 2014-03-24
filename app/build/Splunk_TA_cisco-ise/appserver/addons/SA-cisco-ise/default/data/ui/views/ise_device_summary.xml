@@ -1,0 +1,110 @@
+<form>
+  <label>ISE Device Summary - All Locations</label>
+
+  <fieldset autoRun="True">
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  
+  <row>
+    <html>
+      <p>This dashboard and these panels extract device information from across the entire organization per location for all users.</p>
+    </html>
+  </row>
+
+  <row>
+    
+    <chart>
+      <title>Device Summary accross Organization</title>
+      <searchString>
+        eventtype=cisco-ise NAS_Port_Type="*" |
+        stats count by EndPointMatchedProfile |
+        rename EndPointMatchedProfile AS "Endpoint Matched Profile"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+  </row>
+  
+  <row grouping="2,2">
+    <chart>
+      <title>Device Summary for Wireless Users</title>
+      <searchString>
+        eventtype=cisco-ise NAS_Port_Type="Wireless - IEEE 802.11" |
+        stats count by EndPointMatchedProfile |
+        rename EndPointMatchedProfile AS "Endpoint Matched Profile"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <table>
+      <searchString>
+        eventtype=cisco-ise NAS_Port_Type="Wireless - IEEE 802.11" |
+        stats count by EndPointMatchedProfile Location |
+        sort -count |
+        `format_field_names`
+      </searchString>
+    </table>
+    
+    <chart>
+      <title>Device Summary for Wired Users</title>
+      <searchString>
+        eventtype=cisco-ise NAS_Port_Type="Ethernet" |
+        stats count by EndPointMatchedProfile |
+        sort -count |
+        rename EndPointMatchedProfile AS "Endpoint Matched Profile"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <table>
+      <searchString>
+        eventtype=cisco-ise NAS_Port_Type="Ethernet" |
+        stats count by EndPointMatchedProfile Location |
+        `format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+  
+</form>

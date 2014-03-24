@@ -1,0 +1,1356 @@
+MESSAGE_CODE,MESSAGE_CLASS,MESSAGE_TEXT
+11201,Dynamic-Authorization,Received disconnect dynamic authorization request
+11202,Dynamic-Authorization,Received disconnect and port shutdown dynamic authorization request
+11203,Dynamic-Authorization,Received disconnect and port bounce dynamic authorization request
+11204,Dynamic-Authorization,Received reauthenticate request
+11205,Dynamic-Authorization,Could not find Network Access Device
+11206,Dynamic-Authorization,Could not find Client ISE Node
+11207,Dynamic-Authorization,Received disconnect dynamic authorization response
+11208,Dynamic-Authorization,Received disconnect and  port shutdown dynamic authorization response
+11209,Dynamic-Authorization,Received disconnect and port bounce dynamic authorization response
+11210,Dynamic-Authorization,Received a reauthenticate response
+11211,Dynamic-Authorization,Proxying request to Dynamic Authorization Client ISE
+11212,Dynamic-Authorization,Forwarding your request to Network Access Device
+11213,Dynamic-Authorization,No response received from Network Access Device
+11214,Dynamic-Authorization,An invalid response received from Network Access Device
+11215,Dynamic-Authorization,No response has been received from Dynamic Authorization Client in ISE
+11216,Dynamic-Authorization,The Internal Proxy PAC generation has failed
+11217,Dynamic-Authorization,Prepared the disconnect dynamic authorization request
+11218,Dynamic-Authorization,Prepared the disconnect and port shutdown dynamic authorization request
+11219,Dynamic-Authorization,Prepared the disconnect and port bounce dynamic authorization request
+11220,Dynamic-Authorization,Prepared the reauthenticate request
+11221,Dynamic-Authorization,Received a disconnect dynamic authorization ACK response
+11222,Dynamic-Authorization,Received a disconnect dynamic authorization NAK response
+11223,Dynamic-Authorization,Received a dynamic authorization CoA ACK response
+11224,Dynamic-Authorization,Received a dynamic authorization CoA NAK response
+11225,Dynamic-Authorization,The dynamic authorization request was rejected due to a critical logging error
+11226,Dynamic-Authorization,"ISE Proxy Node, functioning as Dynamic Authorization Client, is deregistered from the deployment"
+11227,Dynamic-Authorization,"ISE Proxy Node, functioning as Dynamic Authorization Client, is marked as inactive in the deployment"
+11300,SGA,Could not locate SGA Device
+11301,SGA,SGA Device found
+11302,RADIUS,Received Secure RADIUS request without a cts-pac-opaque cisco-av-pair attribute
+11303,RADIUS,Could not parse the cts-pac-opaque attribute
+11304,SGA,Could not retrieve requested Security Group Tag
+11305,SGA,Could not retrieve requested Security Group ACL
+11306,RADIUS,PAC has expired
+11307,RADIUS,Incorrect RADIUS CHAP attribute
+11308,RADIUS,Incorrect RADIUS MS-CHAP v1 attribute
+11309,RADIUS,Incorrect RADIUS MS-CHAP v2 attribute
+11310,SGA,Sent Security Group Access Control List to client
+11311,SGA,Failed to locate ACE of Security Group Access Control List
+11312,SGA,Sent fragmented Security Group Access Control List data to client; awaiting follow-up request to download remaining ACEs
+11320,SGA,Sent fragmented Environment data to client; awaiting follow-up request to download remaining data
+11350,RADIUS-Proxy,Detected proxy loop; dropping request
+11351,RADIUS-Proxy,Failed to read RADIUS proxy configuration; dropping request
+11352,RADIUS-Proxy,Response Proxy-State attribute validation failed
+11353,RADIUS-Proxy,No more external RADIUS servers; can't perform failover
+11354,RADIUS-Proxy,Accounting request received but neither local nor remote accounting is configured
+11355,RADIUS-Proxy,Start forwarding request to remote RADIUS server
+11356,RADIUS-Proxy,Failed to forward request to current remote RADIUS server
+11357,RADIUS-Proxy,Successfully forwarded request to current remote RADIUS server
+11358,RADIUS-Proxy,RADIUS proxy received incoming request for forwarding
+11359,RADIUS-Proxy,Failed to forward request to current remote RADIUS server; an invalid response was received
+11360,RADIUS-Proxy,RADIUS proxy failed to validate incoming request
+11361,RADIUS-Proxy,RADIUS proxy received valid incoming authentication request
+11362,RADIUS-Proxy,RADIUS proxy received valid incoming accounting request
+11363,RADIUS-Proxy,RADIUS proxy performing local accounting
+11364,RADIUS-Proxy,RADIUS proxy performing remote accounting
+11400,EAP,EAP-MSCHAP password change not allowed by the Allowed Protocols
+11401,EAP,Prepared RADIUS Access-Reject after the successful in-band PAC provisioning
+11402,EAP,EAP-GTC password change not allowed by the Allowed Protocols
+11500,EAP,Invalid or unexpected EAP payload received
+11501,EAP,Invalid EAP payload
+11502,EAP,EAP packet contains invalid type
+11503,EAP,Prepared EAP-Success
+11504,EAP,Prepared EAP-Failure
+11506,EAP,Prepared EAP-Request/Identity
+11507,EAP,Extracted EAP-Response/Identity
+11508,EAP,EAP-Response/Identity contains invalid identity data
+11509,EAP,Access Service does not allow any EAP protocols
+11510,EAP,Invalid EAP-Response/NAK; EAP-negotiation failed
+11511,EAP,Extracted EAP-Response/NAK packet not requesting any EAP protocols; EAP-negotiation failed
+11512,EAP,Extracted EAP-Response/NAK packet requesting to use unsupported EAP protocol; EAP-negotiation failed
+11513,EAP,Extracted second EAP-Response/NAK in current EAP conversation; failed to negotiate EAP
+11514,EAP,Unexpectedly received empty TLS message; treating as a rejection by the client
+11515,EAP,Invalid EAP-Response/NAK; inner EAP-negotiation failed
+11516,EAP,Extracted EAP-Response/NAK packet not requesting any EAP protocols for inner EAP method; inner EAP-negotiation failed
+11517,EAP,Extracted EAP-Response/NAK packet requesting to use unsupported inner EAP protocol; inner EAP-negotiation failed
+11518,EAP,Extracted second EAP-Response/NAK in current inner EAP conversation; inner EAP-negotiation failed
+11519,EAP,Prepared EAP-Success for inner EAP method
+11520,EAP,Prepared EAP-Failure for inner EAP method
+11521,EAP,Prepared EAP-Request/Identity for inner EAP method
+11522,EAP,Extracted EAP-Response/Identity for inner EAP method
+11523,EAP,Invalid or unexpected inner-EAP payload received
+11524,EAP,Invalid inner-EAP payload
+11800,EAP,Prepared EAP-Request proposing EAP-MSCHAP with challenge
+11801,EAP,Extracted EAP-Response/NAK requesting to use EAP-MSCHAP instead
+11802,EAP,Extracted EAP-Response containing EAP-MSCHAP challenge-response and accepting EAP-MSCHAP as negotiated
+11803,EAP,Failed to negotiate EAP because EAP-MSCHAP not allowed in the Allowed Protocols
+11804,EAP,Extracted EAP-Response containing MSCHAP challenge-response
+11805,EAP,Prepared EAP-Request with another EAP-MSCHAP challenge
+11806,EAP,Prepared EAP-Request for inner method proposing EAP-MSCHAP with challenge
+11807,EAP,Extracted EAP-Response/NAK for inner method requesting to use EAP-MSCHAP instead
+11808,EAP,Extracted EAP-Response containing EAP-MSCHAP challenge-response for inner method and accepting EAP-MSCHAP as negotiated
+11809,EAP,Failed to negotiate EAP for inner method because EAP-MSCHAP not allowed in the Allowed Protocols
+11810,EAP,Extracted EAP-Response for inner method containing MSCHAP challenge-response
+11811,EAP,Prepared EAP-Request for inner method with another EAP-MSCHAP challenge
+11812,EAP,EAP-MSCHAP authentication succeeded
+11813,EAP,EAP-MSCHAP authentication failed
+11814,EAP,Inner EAP-MSCHAP authentication succeeded
+11815,EAP,Inner EAP-MSCHAP authentication failed
+11816,EAP,MSCHAP username doesn't match inner method EAP-Response/Identity
+11817,EAP,Internal error - invalid EAP-MSCHAP state
+11818,EAP,Failed to parse EAP-MSCHAP packet
+11819,EAP,Received EAP-MSCHAP packet with invalid argument
+11821,EAP,EAP-MSCHAP password change attempt failed
+11822,EAP,EAP-MSCHAP password change attempt passed
+11823,EAP,EAP-MSCHAP authentication attempt failed
+11824,EAP,EAP-MSCHAP authentication attempt passed
+11825,EAP,MSCHAP inner method username is missing
+12000,EAP,Prepared EAP-Request proposing EAP-MD5 with challenge
+12001,EAP,Extracted EAP-Response/NAK requesting to use EAP-MD5 instead
+12002,EAP,Extracted EAP-Response containing EAP-MD5 challenge-response and accepting EAP-MD5 as negotiated
+12003,EAP,Failed to negotiate EAP because EAP-MD5 not allowed in the Allowed Protocols
+12004,EAP,Extracted EAP-Response containing EAP-MD5 challenge-response
+12005,EAP,EAP-MD5 authentication succeeded
+12006,EAP,EAP-MD5 authentication failed
+12007,EAP,Internal error - invalid EAP-MD5 state
+12008,EAP,Failed to parse EAP-MD5 packet
+12100,EAP,Prepared EAP-Request proposing EAP-FAST with challenge
+12101,EAP,Extracted EAP-Response/NAK requesting to use EAP-FAST instead
+12102,EAP,Extracted EAP-Response containing EAP-FAST challenge-response and accepting EAP-FAST as negotiated
+12103,EAP,Failed to negotiate EAP because EAP-FAST not allowed in the Allowed Protocols
+12104,EAP,Extracted EAP-Response containing EAP-FAST challenge-response
+12105,EAP,Prepared EAP-Request with another EAP-FAST challenge
+12106,EAP,EAP-FAST authentication phase finished successfully
+12107,EAP,EAP-FAST provisioning phase finished successfully
+12108,EAP,EAP-FAST authentication failed
+12109,EAP,EAP-FAST provisioning phase finished
+12110,EAP,PAC verification failed
+12111,EAP,PAC contains invalid Authority ID
+12112,EAP,PAC contains invalid PAC type
+12113,EAP,PAC has expired - rejecting it
+12114,EAP,PAC contains invalid Authentication Tag
+12115,EAP,Successfully finished EAP-FAST PAC provisioning/update
+12116,EAP,Client sent Result TLV indicating failure
+12117,EAP,EAP-FAST inner method finished with failure
+12118,EAP,EAP-FAST cryptobinding verification failed
+12119,EAP,EAP-FAST needs to proactively update PAC that is about to expire
+12120,EAP,Neither anonymous nor authenticated provisioning allowed by Allowed Protocols
+12121,EAP,Client didn't provide suitable ciphers for anonymous PAC-provisioning
+12122,EAP,Client didn't provide suitable ciphers for authenticated PAC provisioning
+12123,EAP,Client didn't provide suitable ciphers for either anonymous or authenticated PAC-provisioning
+12124,EAP,EAP-FAST inner method skipped
+12125,EAP,EAP-FAST inner method started
+12126,EAP,EAP-FAST cryptobinding verification passed
+12127,EAP,Approved EAP-FAST client PAC request
+12128,EAP,EAP-FAST inner method finished successfully
+12129,EAP,EAP-FAST provisioning failed. General error
+12130,EAP,Failed to decrypt PAC
+12131,EAP,EAP-FAST built anonymous tunnel for purpose of PAC provisioning
+12132,EAP,EAP-FAST built PAC-based tunnel for purpose of authentication
+12133,EAP,Successfully updated Seed key
+12134,EAP,Failed to update seed key
+12135,EAP,Updated Master Key Generation period
+12136,EAP,Sent NDAC Authentication to client
+12137,EAP,Received NDAC Authentication response from client
+12138,EAP,Received Authorization PAC
+12139,EAP,Anonymous TLS renegotiation succeeded
+12140,EAP,Anonymous TLS renegotiation failed
+12141,EAP,Failed to find Legacy Master Key
+12142,EAP,Legacy Master Key expired
+12143,EAP,Failed to derive EAP-FAST Master Key
+12144,EAP,Fallback on invalid PAC: no available additional cipher configured on server
+12145,EAP,Cannot perform more then one invalid PAC fallback
+12146,EAP,No cipher on client side for invalid PAC fallback
+12147,EAP,Machine Authentication is disabled
+12148,EAP,Allowed Protocols does not allow Stateless Session Resume; performing full authentication
+12149,EAP,EAP-FAST built authenticated tunnel for purpose of PAC provisioning
+12150,EAP,Prepared RADIUS Access-Reject after successful in-band PAC provisioning
+12151,EAP,Perform fallback on invalid PAC to provisioning
+12152,EAP,Rejected PAC provisioning request because supplicant failed to adhere to protocol
+12153,EAP,EAP-FAST failed SSL/TLS handshake because the client rejected the ISE local-certificate
+12154,EAP,EAP-FAST failed SSL/TLS handshake after a client alert
+12155,EAP,One Tunnel PAC has already been requested in this conversation. Another Tunnel PAC request will be ignored
+12156,EAP,One CTS PAC has already been requested in this conversation. Another Tunnel PAC request will be ignored
+12157,EAP,One Tunnel PAC has already been requested in this conversation. Another CTS PAC request will be ignored
+12158,EAP,One CTS PAC has already been requested in this conversation. Another CTS PAC request will be ignored
+12159,EAP,One Machine PAC has already been requested in this conversation. Another Machine PAC request will be ignored
+12160,EAP,Cannot provision Machine PAC on anonymous provisioning. Machine PAC can be provisioned only on authenticated provisioning
+12161,EAP,Cannot provision Authorization PAC when the stateless session resume is disabled
+12162,EAP,Cannot provision Authorization PAC on anonymous provisioning. Authorization PAC can be provisioned only on authenticated provisioning
+12163,EAP,One Authorization PAC has already been requested in this conversation. Another Authorization PAC request will be ignored
+12164,EAP,Invalid PAC type requested. Ignoring this request
+12165,EAP,Authorization PAC I-ID does not match user identity. Ignoring this authorization PAC request
+12166,EAP,Machine PAC request does not contain I-ID. Ignoring this Machine PAC request
+12167,EAP,Authorization PAC can be provided only with Tunnel PAC
+12168,EAP,Received CTS PAC
+12169,EAP,Successfully finished EAP-FAST tunnel PAC provisioning/update
+12170,EAP,Successfully finished EAP-FAST machine PAC provisioning/update
+12171,EAP,Successfully finished EAP-FAST authorization PAC provisioning/update
+12172,EAP,Successfully finished EAP-FAST posture PAC provisioning/update
+12173,EAP,Successfully finished EAP-FAST CTS PAC provisioning/update
+12174,EAP,Received Machine PAC
+12175,EAP,Received Tunnel PAC
+51000,Administrator-Login,Administrator authentication failed
+51001,Administrator-Login,Administrator authentication succeeded
+51002,Administrator-Login,Administrator logged off
+51003,Administrator-Login,Session Timeout
+51004,Administrator-Login,Rejected administrator session from unauthorized client IP address
+51005,Administrator-Login,Administrator authentication failed. Administrator account is disabled
+51006,Administrator-Login,Administrator authentication failed. Account is disabled due to inactivity
+51007,Administrator-Login,Authentication failed. Account is disabled due to password expiration
+51008,Administrator-Login,Administrator authentication failed. Account is disabled due to excessive failed authentication attempts
+51009,Administrator-Login,Authentication failed. ISE Runtime is not running
+51020,Administrator-Login,Administrator authentication failed. Login username does not exist.
+51021,Administrator-Login,Administrator authentication failed. Wrong password.
+51022,Administrator-Login,Administrator authentication failed. System Error
+51023,Administrator-Login,Administrator account is unlocked
+51100,User change password,Password changed successfully
+51101,User change password,Invalid new password. Password is too short
+51102,User change password,Invalid new password. Too many repeating characters
+51103,User change password,Invalid new password. Missing required character type
+51104,User change password,Invalid new password. Contains username
+51105,User change password,Invalid new password. Contains reserved word
+51106,User change password,Authentication for web services failed
+51107,User change password,Invalid new password
+51115,User change password,The new password is invalid. This password has been previously used.
+52000,Configuration-Changes,Added configuration
+52001,Configuration-Changes,Changed configuration
+52002,Configuration-Changes,Deleted configuration
+52003,Distributed-Management,Deregister Node
+52004,Distributed-Management,Register Node
+52005,Distributed-Management,Activate Node
+52006,Distributed-Management,Deactivate ISE Node
+52007,Distributed-Management,Force Full replication
+52008,Distributed-Management,Replacement Register Handler
+52009,Distributed-Management,Promote Node
+52010,Distributed-Management,Promote Node Handler
+52011,Distributed-Management,Local Mode
+52012,Distributed-Management,Local Mode Handler
+52013,Distributed-Management,Hardware Replacement
+52014,Distributed-Management,Deregister Handler
+52015,Distributed-Management,Enable LogCollector Target
+52016,Distributed-Management,Select LogCollector Node
+52017,Distributed-Management,Apply software update
+52018,Distributed-Management,Overriding an ISE Instances Log Categories
+52019,Distributed-Management,Restoring an ISE Instances Log Categories to Global
+52020,Distributed-Management,Full Replication
+52021,Distributed-Management,Full replication request
+52022,Distributed-Management,Full replication
+52023,Distributed-Management,Full replication failed
+52024,Distributed-Management,Full replication
+52025,Distributed-Management,Full replication
+52026,Distributed-Management,Full replication
+52027,Distributed-Management,Full replication
+52028,Distributed-Management,Full replication
+52029,Distributed-Management,Full replication
+52030,Distributed-Management,Full replication succeeded
+52031,Distributed-Management,Full replication failed
+52032,Distributed-Management,Registration request
+52033,Distributed-Management,Registration succeeded
+52034,Distributed-Management,Registration request
+52035,Distributed-Management,Registration failed
+52036,Distributed-Management,Registration
+52037,Distributed-Management,Registration
+52038,Distributed-Management,Registration succeeded
+52039,Distributed-Management,Registration failed
+52040,Distributed-Management,Promotion request
+52041,Distributed-Management,Promotion request
+52042,Distributed-Management,Demotion succeeded
+52043,Distributed-Management,Demotion failed
+52044,Distributed-Management,Promotion
+52045,Distributed-Management,Promotion succeeded
+52046,Distributed-Management,Promotion failed
+52047,Distributed-Management,Local mode reconnect request
+52048,Distributed-Management,Local mode start
+52049,Distributed-Management,Local mode reconnect
+52050,Distributed-Management,Local mode reconnect
+52051,Distributed-Management,Local mode reconnect
+52052,Distributed-Management,Local mode reconnect succeeded
+52053,Distributed-Management,Local mode reconnect failed
+52054,Distributed-Management,Local mode request
+52055,Distributed-Management,Local mode request
+52056,Distributed-Management,Local mode
+52057,Distributed-Management,Local mode
+52058,Distributed-Management,Local mode succeeded
+52059,Distributed-Management,Local mode failed
+52060,Distributed-Management,Deregister request
+52061,Distributed-Management,Deregister request
+52062,Distributed-Management,Deregister
+52063,Distributed-Management,Deregister
+52070,Distributed-Management,Deregister request
+52071,Distributed-Management,Deregister
+52072,Distributed-Management,Deregister succeeded
+52073,Distributed-Management,Deregister failed
+52074,Distributed-Management,Delete node request
+52075,Distributed-Management,Delete node request
+52076,Distributed-Management,Delete node request
+52077,Distributed-Management,Delete node
+52078,Distributed-Management,Delete node failed
+52079,Distributed-Management,Delete node succeeded
+52080,Distributed-Management,Delete node failed
+52081,DB-Management,Backup request
+52082,DB-Management,Backup failed
+52083,DB-Management,Backup request
+52084,DB-Management,Backup succeeded
+52085,DB-Management,Backup failed
+52086,Software-Management,Software update request
+52088,Software-Management,Software update
+52089,Software-Management,Software update
+52090,Software-Management,Software update
+52091,Software-Management,Software update failed
+52092,Software-Management,Software update succeeded
+52093,Software-Management,Software update failed
+52094,Distributed-Management,Activate request
+52095,Distributed-Management,Register
+52096,Distributed-Management,Activate
+52097,Distributed-Management,Activate
+52098,Distributed-Management,Activate
+52099,Distributed-Management,Activate
+52100,Distributed-Management,Deregister
+52101,Distributed-Management,Deregister
+52102,DB-Management,SCHEDULED BACKUP
+52103,DB-Management,SCHEDULED BACKUP
+52104,DB-Management,SCHEDULED BACKUP
+52105,DB-Management,SCHEDULED BACKUP
+52106,DB-Management,SCHEDULED BACKUP
+57000,Configuration-changes,Deleted rolled-over local log file(s)
+58001,Process-Management,ISE process started
+58002,Process-Management,ISE process stopped
+58003,Process-Management,ISE processes started
+58004,Process-Management,ISE processes stopped
+58005,Process-Management,ISE process restarted by watchdog
+58006,Process-Management,Watchdog configuration reloaded
+58007,Process-Management,ISE process reported start/stop error
+58008,DB-Management,CARS backup complete
+58009,DB-Management,CARS restore complete
+58010,DB-Management,ISE database backup
+58011,DB-Management,ISE database restore
+58012,DB-Management,ISE support bundle collected
+58013,DB-Management,ISE database reset
+58014,File-Management,ISE core files deleted
+58015,File-Management,ISE log files deleted
+58016,Software-Management,ISE upgrade
+58017,Software-Management,ISE patch install
+58018,System-Management,ISE migration interface enabled/disabled
+58019,System-Management,ISE administrator password reset
+58020,System-Management,Clock set
+58021,System-Management,Time zone set
+58022,System-Management,NTP Server set
+58023,System-Management,Hostname set
+58024,System-Management,IP address set
+58025,System-Management,IP address state
+58026,System-Management,Default gateway set
+58027,System-Management,Name server set
+58028,System-Management,ADE OS Xfer library error
+58029,System-Management,ADE OS install library error
+58030,Software-Management,ISE upgrade - schema change
+58031,Software-Management,ISE upgrade - dictionary
+58032,Software-Management,ISE upgrade - data manipulation
+58033,Software-Management,ISE upgrade - AAC
+58034,Software-Management,ISE upgrade - PKI
+58035,Software-Management,ISE upgrade - MnT
+58036,Software-Management,ISE upgrade
+58037,Software-Management,ISE install
+58038,System-Management,Failed to join to AD
+58039,System-Management,AD join
+58040,System-Management,AD leave
+58041,System-Management,Import/export process aborted
+58042,System-Management,Import/export process started
+58043,System-Management,Import/export process complete
+58044,System-Management,Error in import/export process
+58045,System-Management,Only single network interface is allowed
+59000,EAP-FAST,Received request to revoke all PACs
+59001,EAP-FAST,Generated new EAP-FAST seed key
+59002,EAP-FAST,Successfully updated EAP-FAST seed key
+59003,EAP-FAST,User not authorized to revoke all EAP-FAST PACs
+59004,EAP-FAST,Timed out during attempt to revoke EAP-FAST keys and PACs
+59005,EAP-FAST,Received request to generate Tunnel PAC
+59006,EAP-FAST,Received request to generate Machine PAC
+59007,EAP-FAST,Failed to generate PAC
+59008,EAP-FAST,Successfully generated PAC
+59009,SGA-PAC,Received request to generate SGA PAC
+59010,SGA-PAC,Failed to generate SGA PAC
+59011,SGA-PAC,Successfully generated SGA PAC
+59100,Log-Management,Delete local store logs
+59101,Log-Management,Delete local store logs
+59102,Log-Management,Delete local store logs
+59103,Log-Management,Delete local store logs
+59200,Log-Management,Set log collector
+59201,Log-Management,Set log collector
+59202,Log-Management,Set log collector
+59203,Log-Management,Resume log collector
+59204,Log-Management,Resume log collector
+59205,Log-Management,Resume log collector
+59206,Log-Management,Suspend log collector
+59207,Log-Management,Suspend log collector
+59208,Log-Management,Suspend log collector
+59250,CLI,Administrator reset the access setting from CLI
+59251,CLI,Administrator activated/deactivated AD debug level from CLI
+59252,CLI,Administrator changed component debug log level from CLI
+59253,CLI,Administrator started export configuration data process from CLI
+59254,CLI,Administrator started export configuration data process from CLI
+59255,CLI,Administrator aborted import/export configuration data process from CLI
+59256,CLI,Administrator started replication process from CLI
+59257,CLI,Administrator reset management interface certificate from CLI
+59258,CLI,Administrator decrypted support bundle from CLI
+60000,Software-Management,Patch installation completed successfully on the node
+60001,Software-Management,Patch installation failed on the node
+60002,Software-Management,Patch rollback completed successfully on the node
+60003,Software-Management,Patch rollback failed on the node
+60050,Distributed-Management,Node added to deployment successfully
+60051,Distributed-Management,Failed to add node to deployment
+60052,Distributed-Management,Node removed from deployment
+60053,Distributed-Management,Failed to remove node from deployment
+60054,Distributed-Management,Node updated successfully
+60055,Distributed-Management,Failed to update node
+60056,PDP-Heartbeat,The runtime status of the node group has changed
+60057,PDP-Heartbeat,A PDP node went down
+60058,PDP-Heartbeat,Heartbeat system initial status
+60059,PDP-Heartbeat,Node has successfully registered with MnT
+60060,OCSP,Administrator invoked OCSP Clear Cache operation for all Policy Service nodes
+60061,OCSP,OCSP Clear Cache operation completed successfully
+60062,OCSP,OCSP Clear Cache operation terminated with error
+60063,Distributed-Management,Replication to node completed successfully
+60064,Distributed-Management,Replication to node failed
+3000,Radius-Accounting,RADIUS Accounting start request
+3001,Radius-Accounting,RADIUS Accounting stop request
+3002,Radius-Accounting,RADIUS Accounting watchdog update
+3003,Radius-Accounting,RADIUS Accounting is on
+3004,Radius-Accounting,RADIUS Accounting is off
+3005,Radius-Accounting,RADIUS Accounting tunnel start request
+3006,Radius-Accounting,RADIUS Accounting tunnel stop request
+3007,Radius-Accounting,RADIUS Accounting tunnel rejected
+3008,Radius-Accounting,RADIUS Accounting tunnel link start
+3009,Radius-Accounting,RADIUS Accounting tunnel link stop
+3010,Radius-Accounting,RADIUS Accounting tunnel link rejected
+3300,Tacacs-Accounting,TACACS+ Accounting with Command
+3301,Tacacs-Accounting,TACACS+ Accounting START
+3302,Tacacs-Accounting,TACACS+ Accounting STOP
+3303,Tacacs-Accounting,TACACS+ Accounting WATCHDOG
+3304,Tacacs-Accounting,TACACS+ Accounting request rejected
+5200,Passed-Authentication,Authentication succeeded
+5201,Passed-Authentication,Authentication succeeded
+5202,Device-Administration,Command Authorization succeeded
+5203,Device-Administration,Session Authorization succeeded
+5204,Passed-Authentication,Change password succeeded
+5205,Dynamic-Authorization,Dynamic Authorization succeeded
+5206,Passed-Authentication,PAC provisioned
+5231,Guest,Guest Authentication Passed
+5232,Passed-Authentication,DACL Download Succeeded
+5233,Passed-Authentication,SGA Data Download Succeeded
+5234,Passed-Authentication,SGA Peer Policy Download Succeeded
+5235,Sponsor,Sponsor has successfully authenticated
+5236,Passed-Authentication,Authorize-Only succeeded
+5237,Guest,Device Registration Web Authentication Passed
+5400,Failed-Attempt,Authentication failed
+5401,Failed-Attempt,Authentication failed
+5402,Failed-Attempt,Command Authorization failed
+5403,Device-Administration,Session Authorization failed
+5404,Device-Administration,Authorization failed
+5405,Failed-Attempt,RADIUS Request dropped
+5406,Failed-Attempt,TACACS+ Request dropped
+5407,Failed-Attempt,TACACS+ Authorization failed
+5408,Failed-Attempt,Command Authorization encountered an error
+5409,Failed-Attempt,Session Authorization encountered an error
+5410,Failed-Attempt,TACACS+ Authorization encountered an error
+5411,Failed-Attempt,No response received during 120 seconds on last EAP message sent to the client
+5412,Failed-Attempt,TACACS+ authentication request ended with error
+5413,Failed-Attempt,RADIUS Accounting-Request dropped
+5414,Failed-Attempt,TACACS+ accounting has failed
+5415,Failed-Attempt,Change password failed
+5416,Failed-Attempt,RADIUS PAP session cleaned up
+5417,Dynamic-Authorization,Dynamic Authorization failed
+5431,Guest,Guest Authentication Failed
+5432,Failed-Attempt,DACL Download Failed
+5433,Failed-Attempt,SGA Data Download Failed
+5434,Failed-Attempt,SGA Peer Policy Download Failed
+5435,Sponsor,Sponsor authentication has failed
+5436,Failed-Attempt,Authorize-Only failed
+5437,Guest,Device Registration Web Authentication Failed
+10000,AAC,Received Administrator authentication request
+10001,AAC,Internal error. Incorrect configuration version
+10002,AAC,Internal error: Failure to load appropriate service
+10003,AAC,Internal error: Administrator authentication received blank Administrator name
+10004,AAC,Internal error: Administrator authentication received blank Administrator password
+10005,AAC,Administrator authenticated successfully
+10006,AAC,Administrator authentication failed
+10007,AAC,Administrator authentication failed - DB Error
+10008,AAC,Received valid Administrator authentication request
+10009,AAC,Received Administrator authentication request
+10010,AAC,Admin password change reminder
+10011,AAC,Admin password change required due to expired password
+10012,AAC,Admin password change required due to account inactivity
+10013,AAC,Admin account set as 'never disabled'
+10014,AAC,Admin account set to change password on next login
+11001,RADIUS,Received RADIUS Access-Request
+11002,RADIUS,Returned RADIUS Access-Accept
+11003,RADIUS,Returned RADIUS Access-Reject
+11004,RADIUS,Received RADIUS Accounting-Request
+11005,RADIUS,Returned RADIUS Accounting-Response
+11006,RADIUS,Returned RADIUS Access-Challenge
+11007,RADIUS,Could not locate Network Device or AAA Client
+11008,RADIUS,Received Service-Type = Call Check (but there is no Calling-Station-ID)
+11009,RADIUS,RADIUS listener started
+11010,RADIUS,RADIUS listener stopped
+11011,RADIUS,RADIUS listener failed
+11012,RADIUS,RADIUS packet contains invalid header
+11013,RADIUS,RADIUS packet already in the process
+11014,RADIUS,RADIUS packet contains invalid attribute(s)
+11015,RADIUS,An Access-Request MUST contain either a NAS-IP-Address or a NAS-Identifier or both; Continue processing
+11016,RADIUS,Translating EAP protocol result into RADIUS result
+11017,RADIUS,RADIUS created a new session
+11018,RADIUS,RADIUS is re-using an existing session
+11019,RADIUS,Selected DenyAccess Service
+11020,RADIUS,RADIUS session authorization did not return a valid result
+11021,RADIUS,RADIUS could not decipher password. packet missing necessary attributes
+11022,DACL,Added the dACL specified in the Authorization Profile
+11023,DACL,The requested dACL is not found. This is an unknown dACL name
+11024,DACL,The Access-Request for the requested dACL is missing a Message-Authenticator attribute. The request is rejected
+11025,DACL,The Access-Request for the requested dACL is missing a cisco-av-pair attribute with the value aaa:event=acl-download. The request is rejected
+11026,DACL,The requested dACL is not found
+11027,RADIUS,Detected Host Lookup UseCase (Service-Type = Call Check (10))
+11028,RADIUS,Detected Host Lookup UseCase (UserName = Calling-Station-ID)
+11029,RADIUS,Unsupported RADIUS packet type
+11030,RADIUS,Pre-parsing of the RADIUS packet failed
+11031,RADIUS,RADIUS packet type is not a valid Request
+11032,RADIUS,Selected Access Service type is not Device Administration
+11033,RADIUS,Selected Service type is not Network Access
+11034,RADIUS,Ignoring detection of Host Lookup UseCase (Service-Type = Call Check (10))
+11035,DACL,The session associated with the requested dACL has timed out
+11036,RADIUS,The Message-Authenticator RADIUS attribute is invalid
+11037,RADIUS,Dropped accounting request received via unsupported port
+11038,RADIUS,RADIUS Accounting-Request header contains invalid Authenticator field
+11039,RADIUS,RADIUS authentication request rejected due to critical logging error
+11040,RADIUS,RADIUS accounting request dropped due to critical logging error
+11041,RADIUS,RADIUS PAP session timed out
+11042,RADIUS,Received duplicate RADIUS request; retransmitting previous response
+11043,RADIUS,Received RADIUS CoA request
+11044,RADIUS,Received RADIUS disconnect request
+11045,RADIUS,Returned RADIUS CoA ACK
+11046,RADIUS,Returned RADIUS CoA NAK
+11047,RADIUS,Returned RADIUS disconnect ACK
+11048,RADIUS,Returned RADIUS disconnect NAK
+11049,RADIUS,Settings of RADIUS default network will be used
+11050,RADIUS,RADIUS request dropped due to system overload
+11051,RADIUS,RADIUS packet contains invalid state attribute
+11052,RADIUS,Authentication request dropped due to unsupported port number
+11053,RADIUS,Invalid attributes in outgoing radius packet - possibly some attributes exceeded their size limit
+11054,RADIUS,Request from a non-wireless device was dropped due to installed Wireless license
+11100,RADIUS-Client,RADIUS-Client about to send request
+11101,RADIUS-Client,RADIUS-Client received response
+11102,RADIUS-Client,RADIUS-Client silently discarded invalid response
+11103,RADIUS-Client,RADIUS-Client encountered error during processing flow
+11104,RADIUS-Client,RADIUS-Client request timeout expired
+11105,RADIUS-Client,Request received from a device that is configured with KeyWrap in ISE.
+11106,RADIUS-Client,Error in KeyWrap configuration
+11107,RADIUS-Client,Required attributes for KeyWrap are missing
+11108,RADIUS-Client,Missing required EapMessage attribute for KeyWrap
+11109,RADIUS-Client,RADIUS request improperly contains both KeyWrap and MessageAuthenticator attributes
+11110,RADIUS-Client,Request received from a KeyWrap enabled device. The TunnelPassword attribute is present in KeyWrap.
+11111,RADIUS-Client,"RADIUS request has been received with KeyWrap attributes. However, KeyWrap is not configured for the requesting device in ISE."
+11112,RADIUS-Client,KeyWrap keys accepted from PAC_OPAQUE.
+11113,RADIUS-Client,KeyWrap is not supported in Proxy.
+11114,RADIUS-Client,KeyWrap parameters on RADIUS request packet are not compatible with the earlier KeyWrap request in this session.
+11115,RADIUS,The AAA Client Message Authenticator Code Key does not match the configured ISE Server Message Authenticator Code Key.
+11200,Dynamic-Authorization,Received invalid dynamic authorization request
+24023,External-LDAP,User's groups are retrieved
+24024,External-LDAP,Host's groups are retrieved
+24025,External-LDAP,No user's groups are found
+24026,External-LDAP,No host's groups are found
+24027,External-LDAP,Groups search ended with an error
+24028,External-LDAP,User's attributes are retrieved
+24029,External-LDAP,Host's attributes are retrieved
+24030,External-LDAP,SSL connection error was encountered
+24031,External-LDAP,Sending request to primary LDAP server
+24032,External-LDAP,Sending request to secondary LDAP server
+24033,External-LDAP,Primary server failover. Switching to secondary server
+24034,External-LDAP,Secondary server failover. Switching to primary server
+24035,External-LDAP,Perform domain prefix stripping
+24036,External-LDAP,Perform domain suffix stripping
+24037,External-LDAP,Sent a subject search request
+24038,External-LDAP,Received a subject search response
+24039,External-LDAP,Sent a subject's group search request
+24040,External-LDAP,Received a subject's group search response
+24041,External-LDAP,Sent subject bind request
+24042,External-LDAP,Received subject bind response
+24043,External-LDAP,Sent an administrator bind request
+24044,External-LDAP,Received an administrator bind response
+24050,External-LDAP,Cannot authenticate with LDAP Identity Store because password was not present or was empty
+24051,External-LDAP,Secure LDAP failed SSL handshake because of an unknown CA in the client certificates chain
+24100,Generic-ID-Store,"Some of the expected attributes are not found on the subject record. The default values, if configured, will be used for these attributes"
+24101,Generic-ID-Store,"Some of the retrieved attributes contain multiple values. These values are discarded. The default values, if configured, will be used for these attributes"
+24102,Generic-ID-Store,"Some of the retrieved attributes contain values that are of an incompatible type. These values are discarded. The default values, if configured, will be used for these attributes"
+24201,Local-user-DB,Internal ID Store successfully connected to database
+24202,Local-user-DB,Internal ID Store could not connect to the database
+24203,Local-user-DB,User need to change password
+24204,Local-user-DB,Password changed successfully
+24205,Local-user-DB,Could not change password to new password
+24206,Local-user-DB,User disabled
+24207,Local-user-DB,Host disabled
+24208,Local-user-DB,Looking up Admin in Internal Admins IDStore
+24209,Local-user-DB,Looking up Endpoint in Internal Endpoints IDStore
+24210,Local-user-DB,Looking up User in Internal Users IDStore
+24211,Local-user-DB,Found Endpoint in Internal Endpoints IDStore
+24212,Local-user-DB,Found User in Internal Users IDStore
+24213,Local-user-DB,Found SGA Device in Network Devices and AAA Clients
+24214,Local-user-DB,MSCHAP is used for the change password request in the internal users identity store
+24215,Local-user-DB,PAP is used for the change password request in the internal users identity store
+24216,Local-user-DB,The user is not found in the internal users identity store
+24217,Local-user-DB,The host is not found in the internal endpoints identity store
+24218,Local-user-DB,The SGA device is not defined under Network Devices and AAA Clients in ISE
+24400,External-Active-Directory,Connection to ISE Active Directory agent established successfully
+24401,External-Active-Directory,Could not establish connection with ISE Active Directory agent
+24402,External-Active-Directory,User authentication against Active Directory succeeded
+24403,External-Active-Directory,User authentication against Active Directory failed
+24404,External-Active-Directory,Active Directory operation failed because of an invalid input parameter
+24405,External-Active-Directory,Active Directory operation failed because of a timeout error
+24406,External-Active-Directory,User authentication against Active Directory failed since user has invalid credentials
+24407,External-Active-Directory,User authentication against Active Directory failed since user is required to change his password
+24408,External-Active-Directory,User authentication against Active Directory failed since user has entered the wrong password
+24409,External-Active-Directory,User authentication against Active Directory failed since the user's account is disabled
+24410,External-Active-Directory,User authentication against Active Directory failed since user is considered to be in restricted logon hours
+24411,External-Active-Directory,Change password against Active Directory failed since user has a non-compliant password
+24412,External-Active-Directory,User not found in Active Directory
+24413,External-Active-Directory,User's domain is not recognized by Active Directory
+24414,External-Active-Directory,User authentication against Active Directory failed since the user's account has expired
+24415,External-Active-Directory,User authentication against Active Directory failed since user's account is locked out
+24416,External-Active-Directory,User's Groups retrieval from Active Directory succeeded
+24417,External-Active-Directory,User's Groups retrieval from Active Directory failed
+24418,External-Active-Directory,Machine authentication against Active Directory failed since it is disabled in configuration
+24419,External-Active-Directory,User's Attributes retrieval from Active Directory failed
+24420,External-Active-Directory,User's Attributes retrieval from Active Directory succeeded
+24421,External-Active-Directory,Change password against Active Directory failed since it is disabled in configuration
+24422,External-Active-Directory,ISE has confirmed previous successful machine authentication for user in Active Directory
+24423,External-Active-Directory,ISE has not been able to confirm previous successful machine authentication for user in Active Directory
+24424,External-Active-Directory,Noncompliant attributes detected in Active Directory
+24425,External-Active-Directory,User change password against Active Directory succeeded
+24426,External-Active-Directory,User change password against Active Directory failed
+24427,External-Active-Directory,Access to Active Directory failed
+24428,External-Active-Directory,"Connection related error has occurred in either LRPC, LDAP or KERBEROS"
+24429,External-Active-Directory,Could not establish connection with Active Directory
+24430,External-Active-Directory,Authenticating user against Active Directory
+24431,External-Active-Directory,Authenticating machine against Active Directory
+24432,External-Active-Directory,Looking up user in Active Directory
+24433,External-Active-Directory,Looking up machine in Active Directory
+24434,External-Active-Directory,Performing Change Password in Active Directory
+24435,External-Active-Directory,Machine Groups retrieval from Active Directory succeeded
+24436,External-Active-Directory,Machine Lookup in Active Directory failed
+24437,External-Active-Directory,Machine not found in Active Directory
+24438,External-Active-Directory,Found multiple occurrences of the machine in Active Directory
+31001,Notification-Dispatcher,Could not send configuration notification message
+31100,Configuration-Notifications,Applying configuration changes initiated
+31101,Configuration-Notifications,Applying configuration changes succeeded
+31102,Configuration-Notifications,Applying configuration changes failed
+31103,Configuration-Notifications,Start up configuration load succeeded
+31104,Configuration-Notifications,Start up configuration load failed
+31105,Configuration-Notifications,Transaction is ignored
+31106,Configuration-Notifications,Configuration management could not translate configuration change. Runtime configuration changes will not take effect
+31107,Configuration-Notifications,Cold configuration restart complete
+31108,Configuration-Notifications,Cold configuration restart failed
+31109,Configuration-Notifications,Warm configuration restart complete
+31110,Configuration-Notifications,Warm configuration restart failed
+31111,Configuration-Notifications,The Runtime notifications are out of sync
+31200,Audit-Flow,Encountered invalid/Null Log Record encountered
+31201,Audit-Flow,Encountered invalid or null system message
+31202,Audit-Flow,Encountered invalid or null user context
+31203,Audit-Flow,Encountered error while recording the audit record for successful login
+31204,Audit-Flow,Encountered error while recording the audit record for failed login
+31205,Audit-Flow,Encountered error while recording the audit record for logout
+31206,Audit-Flow,Encountered error while recording the audit record for failover mode
+31207,Audit-Flow,Encountered error while recording the audit record for session timeout
+31500,Startup-Shutdown,Started Management
+31501,Startup-Shutdown,Stopped Management
+31502,Startup-Shutdown,Started Runtime
+31503,Startup-Shutdown,Stopped Runtime
+31504,Startup-Shutdown,The cryptographic module could not initialize
+32000,Logging,Started logging component
+32001,Logging,Shut down logging component
+32002,Logging,Using startup default configuration
+32005,Logging,Could not log message to logger
+32006,Logging,Could not log to critical logger
+32008,Logging,Logging component now ready to receive configuration changes
+32012,Logging,Could not write to local storage file
+32013,Logging,Could not create a local storage file
+32014,Logging,Could not delete a local storage CSV file
+32015,Logging,Local storage file deleted
+32016,Logging,System reached low disk space limit
+32017,Logging,Could not to open a UDP socket
+32018,Logging,Could not send data on socket
+32025,Logging,Rolled over local storage file
+32026,Logging,Could not roll over local storage file
+33101,CLI,Created new ISE configuration session
+33102,CLI,Successful user login to ISE configuration mode
+33103,CLI,User login to ISE configuration mode failed
+33104,CLI,Closed ISE configuration session
+33105,CLI,Set debug log level
+33106,CLI,Set default debug log level
+33107,CLI,Show debugging log status
+33108,CLI,Reset admin password to its default value
+33201,Configuration-Notifications,AD Operation failure
+33202,Configuration-Notifications,AD Operation Success
+33203,Notification-Dispatcher,Hit Count reset
+33204,Notification-Dispatcher,Hit Count recollect
+33205,PI,General PI error
+33206,Configuration-Notifications,AD Operation information
+33207,Configuration-Notifications,AD Operation warning
+33208,Configuration-Notifications,Result for testing connection against AD
+33209,Configuration-Notifications,Result for testing connection against LDAP
+33210,Configuration-Notifications,LDAP traffic info
+33211,System-Management,ISE is using a self signed certificate for Management Interface authentication
+33212,System-Management,"Due to system failure, ISE could not load the associated certificate for the Management Interface"
+33300,Graphical-user-interface,General GUI error
+32500,Local-DB,General database error
+32600,Message-Bus,Connected message bus
+32601,Message-Bus,Could not start message bus
+32602,Message-Bus,Retrying message bus connection
+32603,Message-Bus,Dropped connection. Reconnecting
+32604,Message-Bus,Unknown bus error
+32605,Message-Bus,Unknown attribute
+32606,Message-Bus,Dropped unknown message type
+32607,Message-Bus,Missing attribute
+32700,Administrator-Login,Failover mode caused by an internal error. Configuration changes may not take effect
+33000,Licensing,License is set to expire soon
+33001,Licensing,License expired
+33002,Licensing,Device count exceeded for base license
+33003,Licensing,License deletion failed
+33004,Licensing,License create failed
+33005,Licensing,License update failed
+33400,CRL,Certificate Revocation List was added
+33401,CRL,Could not add Certificate Revocation List
+33402,CRL,Could not download Certificate Revocation List
+33450,OCSP,Received a request to clear OCSP cache
+33451,OCSP,Successfully clear OCSP cache
+33452,OCSP,Failed to clear OCSP cache
+33500,EAP,Could not initialize EAP-TLS
+33501,EAP,Could not initialize EAP-FAST
+33502,EAP,Could not initialize PEAP
+33503,EAP,A blank CTL was configured for EAP-TLS
+33504,EAP,CTL initialization failed
+33505,EAP,Could not initialize EAP-TLS server-certificate
+33506,EAP,Could not initialize EAP-FAST server-certificate
+33507,EAP,Could not initialize PEAP server-certificate
+33508,EAP,Could not initialize the complete EAP-TLS server-certificate chain
+33509,EAP,PEAP failed to completely initialize the server-certificate chain
+33510,EAP,Could not initialize the complete EAP-FAST server-certificate chain
+34000,Replication,Appending  transaction
+34001,Replication,Dispatching transaction
+34002,Replication,Received transaction
+34003,Replication,Applied transaction
+34004,Replication,Replication failed
+34005,Replication,Policy cache sync failed
+34050,RT-Control,RT Control port is up
+34051,RT-Control,RT Control port is blocked
+34100,Certificate,Certificate Expiration warning; Certificate expires in
+34101,Certificate,Certificate has expired
+34110,REST,Error processing the REST request
+34111,REST,Successfully processed the REST request
+34112,REST,Invalid REST request data
+34113,REST,Specified resource not found
+34114,REST,Specified resource already exists
+34115,REST,Specified associated resource does not exist
+34116,REST,Specified policy is not found
+34117,Client Provisioning,Error connecting to remote feed URL
+34118,Client Provisioning,Error processing package from Cisco download feed site
+34119,Profiler,Profile received an error response from NAC Manager for notification event
+34120,Profiler,Profiler failed to get the connection to NAC Manager
+41000,Distributed-Management,Memory statistics not found
+41001,Distributed-Management,Total memory not found
+41002,Distributed-Management,Total swap not found
+41003,Distributed-Management,Disk size not found
+41004,Distributed-Management,Disk device not found
+41005,Distributed-Management,ISE version not found
+41007,Distributed-Management,ISE Node record found
+41008,Distributed-Management,Primary ISE Node record found taking over primary role
+41009,Distributed-Management,Default ISE Deployment created
+41010,Distributed-Management,Default ISE Node created
+41011,Distributed-Management,Node Status initialized
+41012,Distributed-Management,Secondary registered
+41013,Distributed-Management,ISE Node has been deregistered and is now running as a Primary node
+41014,Distributed-Management,Software version not found
+41015,Distributed-Management,Could not run
+41016,Distributed-Management,could not read stdout
+41017,Distributed-Management,Hostname not found
+41018,Distributed-Management,Service Selection Policy update failed
+41019,Distributed-Management,Could not add relation to Service Selection Policy
+41020,Distributed-Management,Could not initialize Service Selection Policy
+41021,Distributed-Management,Could not update ISE Node Object
+41022,Distributed-Management,An error occurred while collecting NodeInfo
+41023,Distributed-Management,An error occurred while collecting replication status
+41024,Distributed-Management,Error loading NodeInfo
+41025,Distributed-Management,NodeInfo file contains incomplete information
+41026,Distributed-Management,Management config directory could not be created
+41027,Distributed-Management,NodeInfo file could not be created
+41028,Distributed-Management,MAC Address not found during initialization
+41029,Distributed-Management,ISE Node record not found in existing nodes. ISE can not start
+41030,Distributed-Management,MAC Id not found in ACSNodeInfo
+41031,Distributed-Management,Registering Secondary Hostname already exists in Primary database
+41032,Distributed-Management,Register failed since Secondary MAC address already exists in the Primary database
+41033,Distributed-Management,Deregistration failed since Secondary ISE Node not found in the Primary database
+41034,Distributed-Management,Activation failed since Secondary ISE Node is not found
+41035,Distributed-Management,Remote host is not a Primary AcsNode
+41036,Distributed-Management,Cannot deregister a Primary ISE Node
+41037,Distributed-Management,"ISE Deployment record can not be found, therefore Primary initialization is incorrect"
+41038,Distributed-Management,Interface configuration cannot be found
+41039,Distributed-Management,Network interface eth0 cannot be found
+41040,Distributed-Management,Network interface eth0 hardware address cannot be found
+41041,Distributed-Management,Network interface eth0 inet address cannot be found
+41042,Distributed-Management,Network interface eth0 mask can not be found
+41043,Distributed-Management,Could not create ACSNodeInfo
+41044,Distributed-Management,"Failure to find the reconnection Acs Instance in the primary, please check that the Acs Instance exists in the Primary Acs Instance Listing page"
+41045,Distributed-Management,Failure. Specified replacement keyword is associated with a registered instance
+41046,Distributed-Management,Registering to Primary
+41047,Distributed-Management,Initiate Full Sync of Data from Primary
+41048,Distributed-Management,ACSNode has been replaced
+41049,Distributed-Management,New ACSNode Registering to Primary
+41050,Distributed-Management,Activating ACSNode
+41051,Distributed-Management,Deactivating ACSNode
+41053,Distributed-Management,Promote node to Primary
+41054,Distributed-Management,Switching Secondary to Local Mode Operation
+41055,Distributed-Management,Upgrading node to new software version
+41056,Distributed-Management,Apply upgrade
+41057,Distributed-Management,Automatic backup being created
+41058,Distributed-Management,Downloading bundle for Primary hosting
+41059,Distributed-Management,Node upgrade completed
+41060,Distributed-Management,Enabling Log Collector Target
+41061,Distributed-Management,Disabling Log Collector Target
+41062,Distributed-Management,Select the Log Collector Node
+41063,Distributed-Management,Remote Syslog Target for Log Collector has been created
+41064,Distributed-Management,The deployment Log Collector cannot be deregistered
+41065,Distributed-Management,Apply upgrade diagnostic messages
+41067,Distributed-Management,Activate
+70000,System-Stats,ISE Utilization
+70001,System-Stats,ISE Process Health
+70002,System-Stats,ISE Process Health Unavailable
+70500,System-Stats,OCSP Statistics
+80001,Profiler,Profiler EndPoint collection event occurred
+80002,Profiler,Profiler EndPoint profiling event occurred
+80003,Profiler,Profiler Probe failed to load
+80004,Profiler,Profiler Performance Counters Snapshot update event occurred
+80005,Profiler,Profiler Exception Action execution occurred
+80006,Profiler,Profiler is triggering Change Of Authorization Request
+80007,Profiler,Profiler SNMP request sent
+80008,Profiler,Profiler SNMP response received
+80009,Profiler,Profiler SNMP request failure
+80010,Profiler,Profiler DNS request sent
+83001,Posture,Posture request from endpoint matched the policy
+83003,Posture,Received a reassessment request from an endpoint
+83007,Posture,Terminating the non-compliant endpoint session
+83009,Posture,NAC agent on client is terminated
+83010,Posture,Posture requirements update has started from the remote feed URL
+83012,Posture,Failed to update Posture requirements from the remote feed URL
+83013,Posture,Checking for the updated Posture requirements on the remote feed URL
+83014,Posture,Processing the updated Posture requirements received from the remote feed URL
+83015,Posture,Posture service is triggering a Change Of Authorization request
+84002,Client Provisioning,"Provisioning is disabled, so no operations related to provisioning are allowed at this time"
+84003,Client Provisioning,Posture component not provisioned due to version incompatibility with agent version
+85000,EPS,Endpoint Protection Service is triggering a Change Of Authorization request
+86001,Guest,Guest user has entered the guest portal login page
+86002,Guest,Sponsor has suspended a guest user account
+86003,Guest,Sponsor has enabled a guest user account
+86004,Guest,Guest user has changed  the password
+86005,Guest,Guest user has accepted the Use Policy
+86006,Guest,Guest user account is created
+86007,Guest,Guest user account is updated
+86008,Guest,Guest user account is deleted
+86009,Guest,Guest user is not found
+86010,Guest,Guest user authentication failed
+86011,Guest,Guest user is not enabled
+86012,Guest,User declined Access-Use Policy
+86013,Guest,Portal not found
+86014,Guest,User is suspended
+86015,Guest,Invalid Password Change
+86016,Guest,Guest Timeout Exceeded
+86017,Guest,Session Missing
+86018,Guest,Guest Change of Authorization Failed
+86019,Guest,Guest User restricted
+86020,Guest,Guest Unknown Error
+86021,Guest,Entering Device Registration Web Authentication Portal
+24439,External-Active-Directory,Machine Attributes retrieval from Active Directory succeeded
+24440,External-Active-Directory,Machine primary group name does not exist in Active Directory
+24441,External-Active-Directory,Account not permitted to log on using the current workstation
+24442,External-Active-Directory,User-related object retrieval operation from Active Directory has failed
+24443,External-Active-Directory,User's Groups retrieval from Active Directory succeeded partially
+24444,External-Active-Directory,Active Directory operation has failed because of an unspecified error in the ISE
+24445,External-Active-Directory,Machine Groups retrieval from Active Directory succeeded partially
+24446,External-Active-Directory,Active Directory domain controller is unreachable
+24447,External-Active-Directory,"ISE appliance machine account in Active Directory is disabled, deleted or reset"
+24448,External-Active-Directory,User object retrieval from Active Directory failed because of a timeout error
+24449,External-Active-Directory,User's Groups retrieval from Active Directory failed because of  a timeout error
+24450,External-Active-Directory,User's Attributes retrieval from Active Directory failed because of a timeout error
+24451,External-Active-Directory,Machine object retrieval from Active Directory failed because of a timeout error
+24452,External-Active-Directory,Machine primary group retrieval from Active Directory failed because of a timeout error
+24453,External-Active-Directory,Machine Attributes retrieval from Active Directory failed because of a timeout error
+24454,External-Active-Directory,User authentication against Active Directory failed because of a timeout error
+24455,External-Active-Directory,Change password against Active Directory failed because of a timeout error
+24456,External-Active-Directory,Not all user Active Directory groups are retrieved successfully. One of the groups was not retrieved by its SID
+24457,External-Active-Directory,Not all user Active Directory groups are retrieved successfully. One or more of the group's canonical name was not retrieved
+24458,External-Active-Directory,Not all Active Directory attributes are retrieved successfully
+24459,External-Active-Directory,Host memberOf groups do not exist or cannot be retrieved
+24460,External-Active-Directory,There are multiple occurrences of the user name in the Active directory
+24461,External-Active-Directory,Could not locate the user in the Active directory using User Lookup
+24462,External-Active-Directory,The ISE Active Directory module does not have sufficient memory
+24463,External-Active-Directory,Internal error in the ISE Active Directory
+24464,External-Active-Directory,The Active Directory does not have the required privileges
+24465,External-Active-Directory,ISE is not joined to an Active Directory Domain Controller
+24466,External-Active-Directory,ISE Active Directory agent is down
+24467,External-Active-Directory,Could not retrieve the specified object
+24468,External-Active-Directory,Failed to retrieve the user certificate from Active Directory
+24469,External-Active-Directory,The user certificate was retrieved from Active Directory successfully
+24470,External-Active-Directory,Machine authentication against Active Directory is successful
+24471,External-Active-Directory,Active Directory does not support the change EnablePassword option
+24472,External-Active-Directory,The user or host account is locked out; setting the IdentityAccessRestricted flag to true
+24473,External-Active-Directory,The user's password has expired; setting the IdentityAccessRestricted flag to true
+24474,External-Active-Directory,The user's or host's account has expired; setting the IdentityAccessRestricted flag to true
+24475,External-Active-Directory,The user's or host's account is disabled; setting the IdentityAccessRestricted flag to true
+24476,External-Active-Directory,The user's or host's account is in restricted logon hours; setting the IdentityAccessRestricted flag to true. true
+24477,External-Active-Directory,The user is not permitted to log in to Active Directory using the current workstation; setting the IdentityAccessRestricted flag to true
+24478,External-Active-Directory,Error while validating the user or host in Active Directory; the IdentityAccessRestricted flag is not altered
+24479,External-Active-Directory,Not all machines in the Active Directory groups are retrieved; one or more of the group's canonical name is not retrieved
+24480,External-Active-Directory,The machine-related object retrieval operation from Active Directory has failed
+24481,External-Active-Directory,The machine's attribute retrieval from Active Directory has failed
+24482,External-Active-Directory,Successfully retrieved the machine certificate from Active Directory
+24483,External-Active-Directory,Failed to retrieve the machine certificate from Active Directory
+24484,External-Active-Directory,Machine authentication against Active Directory has failed because the machine's password has expired
+24485,External-Active-Directory,Machine authentication against Active Directory has failed because of wrong password
+24486,External-Active-Directory,Machine authentication against Active Directory has failed because the machine's account is disabled
+24487,External-Active-Directory,Machine authentication against Active Directory failed since machine is considered to be in restricted logon hours
+24488,External-Active-Directory,The machine's domain is not recognized by Active Directory
+24489,External-Active-Directory,Machine authentication against Active Directory has failed because the machine's account has expired
+24490,External-Active-Directory,Machine authentication against Active Directory has failed because the machine's account is locked out
+24491,External-Active-Directory,Machine authentication against Active Directory has failed because the machine has invalid credentials
+24492,External-Active-Directory,Machine authentication against Active Directory has failed
+24493,External-Active-Directory,ISE has problems communicating with Active Directory using its machine credentials
+24494,External-Active-Directory,Active Directory DNS servers are not available
+24495,External-Active-Directory,Active Directory servers are not available
+24500,External-RSA-SecurID-Server,Authenticating user against the RSA SecurID Server
+24501,External-RSA-SecurID-Server,A session is established with the RSA SecurID Server
+24502,External-RSA-SecurID-Server,The session with RSA SecurID Server is closed
+24503,External-RSA-SecurID-Server,Cannot establish a session with the RSA SecurID Server
+24504,External-RSA-SecurID-Server,The lock user request has failed
+24505,External-RSA-SecurID-Server,User authentication has succeeded
+24506,External-RSA-SecurID-Server,Check passcode operation succeeded
+24507,External-RSA-SecurID-Server,Next Tokencode operation succeeded
+24508,External-RSA-SecurID-Server,User authentication failed
+24509,External-RSA-SecurID-Server,Check passcode resulted in Next Tokencode required
+24510,External-RSA-SecurID-Server,Check passcode resulted in setting New PIN required
+24511,External-RSA-SecurID-Server,Check passcode operation against RSA SecurID Server resulted in error
+24512,External-RSA-SecurID-Server,Next tokencode operation in RSA SecurID Server resulted in error
+24513,External-RSA-SecurID-Server,Set New PIN operation in RSA SecurID Server resulted in error
+24514,External-RSA-SecurID-Server,Next tokencode operation in RSA SecurID Server failed
+24515,External-RSA-SecurID-Server,Set New PIN operation in RSA SecurID Server failed
+24516,External-RSA-SecurID-Server,New PIN was set successfully
+24517,External-RSA-SecurID-Server,User accepts system's PIN
+24518,External-RSA-SecurID-Server,User canceled New PIN operation; User authentication against RSA SecurIDServer failed
+24519,External-RSA-SecurID-Server,User entered invalid PIN; PIN must only contain alpha-numeric characters
+24520,External-RSA-SecurID-Server,User entered invalid PIN; PIN must only contain numeric characters
+24521,External-RSA-SecurID-Server,User entered PIN with invalid length
+24522,External-RSA-SecurID-Server,User authentication failed according to configuration to fail after New PIN operation
+24523,External-RSA-SecurID-Server,Returned challenge asking the user to enter next tokencode
+24524,External-RSA-SecurID-Server,Received user response for next tokencode challenge
+24525,External-RSA-SecurID-Server,Returned challenge asking the user to accept system's PIN
+24526,External-RSA-SecurID-Server,Received user response for accept system PIN challenge
+24527,External-RSA-SecurID-Server,Returned challenge asking the user to enter new PIN
+24528,External-RSA-SecurID-Server,Received user response for enter new PIN challenge
+24529,External-RSA-SecurID-Server,Returned challenge displaying the user his new PIN
+24530,External-RSA-SecurID-Server,Received user response for challenge displaying him his new PIN
+24531,External-RSA-SecurID-Server,Returned challenge asking the user to reenter new PIN
+24532,External-RSA-SecurID-Server,Received user response for challenge asking the user to reenter new PIN
+24533,External-RSA-SecurID-Server,User reentered a different PIN
+24534,External-RSA-SecurID-Server,Returned challenge asking the user whether he is going to accept system's PIN or will enter a new PIN by himself
+24535,External-RSA-SecurID-Server,Received user response for challenge asking the user to accept system's PIN or enter a new PIN
+24536,External-RSA-SecurID-Server,User chose to enter a new PIN
+24537,External-RSA-SecurID-Server,User chose to accept system's PIN
+24538,External-RSA-SecurID-Server,RSA Session was invalidated
+24539,External-RSA-SecurID-Server,"RSA agent configuration loaded, RSA agent started"
+24540,External-RSA-SecurID-Server,"RSA agent configuration initialized, RSA agent started"
+24541,External-RSA-SecurID-Server,"RSA agent configuration updated, RSA agent restarted"
+24542,External-RSA-SecurID-Server,"RSA agent configuration deleted, RSA agent stopped"
+24543,External-RSA-SecurID-Server,"RSA session timeout, session cancelled"
+24544,External-RSA-SecurID-Server,RSA agent initialization failed
+24545,External-RSA-SecurID-Server,The securid file has been removed
+24546,External-RSA-SecurID-Server,The sdstatus.12 file has been removed
+24547,External-RSA-SecurID-Server,RSA request timeout expired. RSA authentication session cancelled
+24548,External-RSA-SecurID-Server,RSA agent configuration load failed
+24549,External-RSA-SecurID-Server,RSA agent configuration initialization failed
+24550,External-RSA-SecurID-Server,RSA agent configuration update failed
+24551,External-RSA-SecurID-Server,"RSA request is declined, because RSA agent initialization has failed"
+24552,External-RSA-SecurID-Server,Reject response from the RSA server is considered as User not found
+24553,External-RSA-SecurID-Server,User record was cached
+24554,External-RSA-SecurID-Server,User record was not cached
+24555,External-RSA-SecurID-Server,User record was found in the cache
+24556,External-RSA-SecurID-Server,User record was not found in the cache
+24557,External-RSA-SecurID-Server,An error occurred while searching for user records in the cache
+24558,External-RSA-SecurID-Server,User cache is not enabled in the RSA identity store configuration
+24559,External-RSA-SecurID-Server,Searching for user in the RSA identity store
+24600,Radius-Token,RADIUS token identity store is created
+24601,Radius-Token,RADIUS token identity store is destroyed
+24602,Radius-Token,RADIUS token identity store is configured with static prompt
+24603,Radius-Token,RADIUS token identity store configured to obtain prompt from RADIUS token server
+24604,Radius-Token,RADIUS token primary server was created
+24605,Radius-Token,RADIUS token secondary server was created
+24606,Radius-Token,RADIUS token identity store configured to fail on authentication reject
+24607,Radius-Token,RADIUS token identity store configured to return unknown user error on authentication reject
+24608,Radius-Token,RADIUS token identity store failed due to wrong input
+24609,Radius-Token,RADIUS token identity store is authenticating against the primary server
+24610,Radius-Token,RADIUS token identity store is authenticating against the secondary server
+24611,Radius-Token,RADIUS token server configuration error
+24612,Radius-Token,Authentication against the RADIUS token server succeeded
+24613,Radius-Token,Authentication against the RADIUS token server failed
+24614,Radius-Token,RADIUS token server authentication failure is translated as Unknown user failure
+24615,Radius-Token,RADIUS token identity store received access challenge response
+24616,Radius-Token,RADIUS token identity store received timeout error
+24617,Radius-Token,RADIUS token identity store received external error
+24618,Radius-Token,RADIUS token identity store received unknown error
+24619,Radius-Token,Non-compliant attributes detected in the RADIUS token identity store
+24620,Radius-Token,User name format was changed after authentication with the RADIUS token server
+24621,Radius-Token,RADIUS token identity store configured to return defined prompt
+24622,Radius-Token,RADIUS token identity store configured to return prompt from the RADIUS token server
+24623,Radius-Token,User record was cached
+24624,Radius-Token,User record was not cached
+24625,Radius-Token,User record found in the cache
+24626,Radius-Token,User record not found in the cache
+24627,Radius-Token,An error occurred while searching for user records in the cache
+24628,Radius-Token,User cache not enabled in the RADIUS token identity store configuration
+24629,Radius-Token,Searching for user in the RADIUS token identity store
+24630,Radius-Token,Failed to get Server IP by name
+30000,MGMT,Unknown fatal management error
+31000,Notification-Dispatcher,Could not initialize notification dispatcher
+12176,EAP,Starting PAC-less authentication
+12177,EAP,No cipher for PAC-less EAP-FAST authentication
+12178,EAP,Rejected PAC unexpectedly received during PAC-less mode of EAP-FAST
+12200,EAP,Approved EAP-FAST client Tunnel PAC request
+12201,EAP,Approved EAP-FAST client Machine PAC request
+12202,EAP,Approved EAP-FAST client Authorization PAC request
+12300,EAP,Prepared EAP-Request proposing PEAP with challenge
+12301,EAP,Extracted EAP-Response/NAK requesting to use PEAP instead
+12302,EAP,Extracted EAP-Response containing PEAP challenge-response and accepting PEAP as negotiated
+12303,EAP,Failed to negotiate EAP because PEAP not allowed in the Allowed Protocols
+12304,EAP,Extracted EAP-Response containing PEAP challenge-response
+12305,EAP,Prepared EAP-Request with another PEAP challenge
+12306,EAP,PEAP authentication succeeded
+12307,EAP,PEAP authentication failed
+12308,EAP,Client sent Result TLV indicating failure
+12309,EAP,PEAP handshake failed
+12310,EAP,PEAP full handshake finished successfully
+12311,EAP,PEAP session resumed successfully
+12312,EAP,PEAP fast-reconnect - skipping inner method
+12313,EAP,PEAP inner method started
+12314,EAP,PEAP inner method finished successfully
+12315,EAP,PEAP inner method finished with failure
+12316,EAP,PEAP version negotiation failed
+12317,EAP,PEAP fast-reconnect failed; starting inner method
+12318,EAP,Successfully negotiated PEAP version 0
+12319,EAP,Successfully negotiated PEAP version 1
+12320,EAP,Client failed to acknowledge receipt of success or failure result
+12321,EAP,PEAP failed SSL/TLS handshake because the client rejected the ISE local-certificate
+12322,EAP,PEAP failed SSL/TLS handshake after a client alert
+12500,EAP,Prepared EAP-Request proposing EAP-TLS with challenge
+12501,EAP,Extracted EAP-Response/NAK requesting to use EAP-TLS instead
+12502,EAP,Extracted EAP-Response containing EAP-TLS challenge-response and accepting EAP-TLS as negotiated
+12503,EAP,Failed to negotiate EAP because EAP-TLS not enabled in Allowed Protocols
+12504,EAP,Extracted EAP-Response containing EAP-TLS challenge-response
+12505,EAP,Prepared EAP-Request with another EAP-TLS challenge
+12506,EAP,EAP-TLS authentication succeeded
+12507,EAP,EAP-TLS authentication failed
+12508,EAP,EAP-TLS handshake failed
+12509,EAP,EAP-TLS full handshake finished successfully
+12510,EAP,EAP-TLS session resumed successfully
+12511,EAP,Unexpectedly received TLS alert message; treating as a rejection by the client
+12512,EAP,Treat the unexpected TLS acknowledge message as a rejection from the client
+12513,EAP,Could not establish the EAP TLS SSL session
+12514,EAP,EAP-TLS failed SSL/TLS handshake because of an unknown CA in the client certificates chain
+12515,EAP,EAP-TLS failed SSL/TLS handshake because of an expired CRL associated with a CA in the client certificates chain
+12516,EAP,EAP-TLS failed SSL/TLS handshake because of an expired certificate in the client certificates chain
+12517,EAP,EAP-TLS failed SSL/TLS handshake because of a revoked certificate in the client certificate chain
+12518,EAP,EAP-TLS failed SSL/TLS handshake because of a bad certificate in the client certificate chain
+12519,EAP,EAP-TLS failed SSL/TLS handshake because of an unsupported certificate in the client certificate chain
+12520,EAP,EAP-TLS failed SSL/TLS handshake because the client rejected the ISE local-certificate
+12521,EAP,EAP-TLS failed SSL/TLS handshake after a client alert
+12522,EAP,Prepared EAP-Request for inner method proposing EAP-TLS with challenge
+12523,EAP,Extracted EAP-Response/NAK for inner method requesting to use EAP-TLS instead
+12524,EAP,Extracted EAP-Response containing EAP-TLS challenge-response for inner method and accepting EAP-TLS as negotiated
+12525,EAP,Failed to negotiate EAP for inner method because EAP-TLS not allowed in the Allowed Protocols
+12526,EAP,Extracted EAP-Response for inner method containing TLS challenge-response
+12527,EAP,Prepared EAP-Request for inner method with another EAP-TLS challenge
+12528,EAP,Inner EAP-TLS authentication succeeded
+12529,EAP,Inner EAP-TLS authentication failed
+12550,EAP,Sent an OCSP request to the primary OCSP server for the CA
+12551,EAP,Sent an OCSP request to the secondary OCSP server for the CA
+12552,EAP,Conversation with OCSP server ended with failure
+12553,EAP,Received OCSP response
+12554,EAP,OCSP status of user certificate is good
+12555,EAP,OCSP status of user certificate is revoked
+12556,EAP,OCSP status of user certificate is unknown
+12557,EAP,Reject user certificate whose OCSP status is unknown
+12558,EAP,Performed fallback to secondary OCSP server
+12559,EAP,Internal error occured during communication with the OCSP server
+12560,EAP,OCSP server URL is invalid
+12561,EAP,Connection to OCSP server failed
+12562,EAP,OCSP server response is invalid
+12563,EAP,OCSP server returned an error
+12564,EAP,OCSP server did not provide the required nonce in response
+12565,EAP,OCSP server response nonce verification failed
+12566,EAP,OCSP server response time verification failed
+12567,EAP,OCSP server response signature verification failed
+12568,EAP,Lookup user certificate status in OCSP cache
+12569,EAP,User certificate status was not found in OCSP cache
+12570,EAP,Lookup user certificate status in OCSP cache succeeded
+12571,EAP,ISE will continue to CRL verification if it is configured for specific CA
+12572,EAP,OCSP response not cached
+12600,EAP,Prepared EAP-Request proposing EAP-GTC with challenge
+12601,EAP,Extracted EAP-Response/NAK requesting to use EAP-GTC instead
+12602,EAP,Extracted EAP-Response containing EAP-GTC challenge-response and accepting EAP-GTC as negotiated
+12603,EAP,Failed to negotiate EAP because EAP-GTC not allowed in the Allowed Protocols
+12604,EAP,Extracted EAP-Response containing GTC challenge-response
+12605,EAP,Prepared EAP-Request with another EAP-GTC challenge
+12606,EAP,Prepared EAP-Request for inner method proposing EAP-GTC with challenge
+12607,EAP,Extracted EAP-Response/NAK for inner method requesting to use EAP-GTC instead
+12608,EAP,Extracted EAP-Response containing EAP-GTC challenge-response for inner method and accepting EAP-GTC as negotiated
+12609,EAP,Failed to negotiate EAP for inner method because EAP-GTC not allowed in the Allowed Protocols
+12610,EAP,Extracted EAP-Response for inner method containing GTC challenge-response
+12611,EAP,Prepared EAP-Request for inner method with another EAP-GTC challenge
+12612,EAP,EAP-GTC authentication succeeded
+12613,EAP,EAP-GTC authentication failed
+12614,EAP,Inner EAP-GTC authentication succeeded
+12615,EAP,Inner EAP-GTC authentication failed
+12616,EAP,GTC username doesn't match inner method EAP-Response/Identity
+12617,EAP,Internal error: invalid EAP-GTC state
+12618,EAP,Failed to parse EAP-GTC packet
+12619,EAP,Received EAP-GTC packet with invalid argument
+12621,EAP,EAP-GTC password change attempt failed
+12622,EAP,EAP-GTC password change attempt passed
+12623,EAP,EAP-GTC authentication attempt failed
+12624,EAP,EAP-GTC authentication attempt passed
+12625,EAP,Valid EAP-Key-Name attribute received
+12626,EAP,Invalid EAP-Key-Name attribute received
+12628,EAP,Invalid operation performed
+12650,EAP,Invalid operation performed
+12651,EAP,Accept client on authenticated provisioning
+12652,EAP,Accept client on provisioning after invalid PAC fallback
+12653,EAP,Failed to negotiate EAP for inner method because EAP-GTC denied for anonymous PAC provisioning
+12700,EAP,Prepared EAP-Request proposing LEAP with challenge
+12701,EAP,Extracted EAP-Response/NAK requesting to use LEAP instead
+12702,EAP,Extracted EAP-Response containing LEAP challenge-response and accepting LEAP as negotiated
+12703,EAP,Failed to negotiate EAP because LEAP not allowed in the Allowed Protocols
+12704,EAP,LEAP completed. Sent EAP-Response containing LEAP challenge-response and cisco-av-pair containing LEAP session-key
+12705,EAP,LEAP authentication passed; Continuing protocol
+12706,EAP,LEAP authentication failed; Finishing protocol
+12707,EAP,LEAP authentication error; Finishing protocol
+12708,EAP,LEAP packet validation failed
+12709,EAP,LEAP packet parsing failed
+12710,EAP,LEAP internal error: Invalid state
+12711,EAP,LEAP internal error: LEAP challenge not created
+12712,EAP,LEAP internal error: LEAP challenge-response and session-key not created
+12750,EAP,Failed to negotiate EAP for inner method because EAP-MSCHAP not allowed under PEAP configuration in the Allowed Protocols
+12751,EAP,Failed to negotiate EAP for inner method because EAP-MSCHAP not allowed under EAP-FAST configuration in the Allowed Protocols
+12752,EAP,Failed to negotiate EAP for inner method because EAP-TLS not allowed under PEAP configuration in the Allowed Protocols
+12753,EAP,Failed to negotiate EAP for inner method because EAP-TLS not allowed under EAP-FAST configuration in the Allowed Protocols
+12754,EAP,Failed to negotiate EAP for inner method because EAP-GTC not allowed under PEAP configuration in the Allowed Protocols
+12755,EAP,Failed to negotiate EAP for inner method because EAP-GTC not allowed under EAP-FAST configuration in the Allowed Protocols
+12800,EAP,Extracted first TLS record; TLS handshake started
+12801,EAP,Prepared TLS ChangeCipherSpec message
+12802,EAP,Prepared TLS Finished message
+12803,EAP,Extracted TLS ChangeCipherSpec message
+12804,EAP,Extracted TLS Finished message
+12805,EAP,Extracted TLS ClientHello message
+12806,EAP,Prepared TLS ServerHello message
+12807,EAP,Prepared TLS Certificate message
+12808,EAP,Prepared TLS ServerKeyExchange message
+12809,EAP,Prepared TLS CertificateRequest message
+12810,EAP,Prepared TLS ServerDone message
+12811,EAP,Extracted TLS Certificate message containing client certificate
+12812,EAP,Extracted TLS ClientKeyExchange message
+12813,EAP,Extracted TLS CertificateVerify message
+12814,EAP,Prepared TLS Alert message
+12815,EAP,Extracted TLS Alert message
+12816,EAP,TLS handshake succeeded
+12817,EAP,TLS handshake failed
+12818,EAP,Expected TLS acknowledge for last alert but received another message
+12830,CRL,CRL verification bypassed
+12831,CRL,Unable to download CRL
+12832,EAP,Tunnel build with local server certificate is not yet active or it has already expired
+12833,EAP,EAP-FAST provisioning mode is restricted to anonymous
+12834,CRL,ISE used a CRL that is not active yet or has expired
+12850,EAP,Received NAK TLV. Client rejected the conversation
+12851,EAP,Received unexpected EAP NAK message. Client rejected the conversation
+12852,EAP,Invalid buffer received. Crypto processing failed
+12853,EAP,Empty EAP-GTC message received
+12854,EAP,Can not authenticate because password was not present or was empty
+12855,EAP,PAC was not sent due to authorization failure
+12856,EAP,User certificate was revoked by CRL verification
+13000,TACACS,Invalid TACACS+ authorization request
+13001,TACACS,Invalid TACACS+ accounting request
+13002,TACACS,Started TACACS+ listener
+13003,TACACS,Stopped TACACS+ listener
+13004,TACACS,TACACS+ listener failed
+13005,TACACS,Received TACACS+ Authorization Request
+13006,TACACS,Received TACACS+ Accounting Request
+13007,TACACS,Invalid TACACS+ packet header
+13008,TACACS,Reached TACACS+ maximum client limit
+13009,TACACS,Failed to accept TACACS+ client connection
+13010,TACACS,Received TACACS+ packet with invalid length
+13011,TACACS,Invalid TACACS+ request packet - possibly mismatched Shared Secrets
+13012,TACACS,Invalid TACACS+ authentication request
+13013,TACACS,Received TACACS+ Authentication START Request
+13014,TACACS,Received TACACS+ Authentication CONTINUE Request
+13015,TACACS,Returned TACACS+ Authentication Reply
+13017,TACACS,Received TACACS+ packet from unknown Network Device or AAA Client
+13019,TACACS,Failed to obtain TACACS+ Settings
+13020,TACACS,Get TACACS+ default network device setting
+13021,TACACS,TACACS+ request was dropped because of system overload
+13023,Device-administration,Command matched a Deny-Always rule
+13024,Device-administration,Command matched a Permit rule
+13025,Device-administration,Command failed to match a Permit rule
+13027,TACACS,TACACS+ authorization request missing both User and Remote-Address attributes
+13029,TACACS,Requested privilege level too high
+13030,TACACS,TACACS+ authentication request missing a User name
+13031,TACACS,TACACS+ authentication request missing user Password
+13032,TACACS,Fatal error accessing TACACS+ configuration
+13034,TACACS,Returned TACACS+ Authorization Reply
+13035,TACACS,Returned TACACS+ Accounting Reply
+13036,TACACS,Selected Shell Profile is DenyAccess
+13037,TACACS,Shell Profile Privilege Level not configured correctly
+13038,TACACS,TACACS+ request failed because of a critical logging error
+13039,TACACS,TACACS+ authentication request does not contain the user's new password
+13040,TACACS,TACACS+ authentication request contains an empty string in the Confirm New User Password field
+13041,TACACS,TACACS+ authentication request switches from Login to Change Password functionality
+13042,TACACS,TACACS+ authentication request to confirm a user's new password has failed
+13043,TACACS,Challenge-response mechanism is not supported by the selected TACACS+ authentication type
+13044,TACACS,TACACS+ will use the password prompt returned by the identity store
+13045,TACACS,TACACS+ will use the password prompt from global TACACS+ configuration
+13046,TACACS,TACACS+ ASCII change password request
+15001,Policy,Adapter must contain at least one value
+15002,Policy,Configured operator failed to match the value type
+15003,Policy,Incorrect database configuration
+15004,Policy,Matched rule
+15005,Policy,Matched monitored rule
+15006,Policy,Matched Default Rule
+15007,Policy,Policy result type did not match expected result
+15008,Policy,Evaluating Service Selection Policy
+15009,Policy,Exception Authorization Policy not configured
+15010,Policy,Identity policy is not configured
+15011,Policy,Authorization Policy not configured
+15012,Policy,Selected Access Service
+15013,Policy,Selected Identity Source
+15015,Policy,Could not find ID Store
+15016,Policy,Selected Authorization Profile
+15017,Policy,Selected Shell Profile
+15018,Policy,Selected Command Set
+15019,Policy,Could not find selected Authorization Profiles
+15020,Policy,Could not find selected Shell Profiles
+15021,Policy,Could not find selected Command Set
+15022,Policy,Could not find selected Access Service
+15023,Policy,Could not match rule
+15024,Policy,PAP is not allowed
+15025,Posture,External Policy Check Policy not configured
+15026,Posture,External Policy Server not found
+15027,Posture,External Policy Server selected
+15028,Posture,Sending request to External Policy Server
+15029,Posture,Could not retrieve attributes from External Policy Server
+15030,Posture,Apparent misconfiguration of External Policy Server
+15031,Posture,External Policy attributes retrieved
+15032,Policy,Evaluating External Policy Check Policy
+15033,Policy,Group Mapping Policy not configured
+15034,Posture,Skip External Policy Check
+15035,Policy,Evaluating Exception Authorization Policy
+15036,Policy,Evaluating Authorization Policy
+15037,Policy,Using previously selected Access Service
+15038,Posture,Skipping External Policy because of missing or malformed required attributes
+15039,RADIUS,Rejected per authorization profile
+15040,Policy,Principle user name x509 attribute not defined in certificate profile
+15041,Policy,Evaluating Identity Policy
+15042,Policy,No rule was matched
+15043,Policy,Dynamic attribute value is unavailable
+15044,Policy,Evaluating Group Mapping Policy
+15045,Policy,CHAP is not allowed
+15046,Policy,MS-CHAP v1 is not allowed
+15047,Policy,MS-CHAP v2 is not allowed
+15048,Policy,Queried PIP
+22000,Authentication,Authentication resulted in internal error
+22001,Authentication,Restricted attribute(s) found
+22002,Authentication,Authentication complete
+22003,Authentication,Missing attribute for authentication
+22004,Authentication,Wrong password
+22005,Authentication,Could not get shell profile object
+22006,Authentication,Shell profile object is not configured
+22007,Authentication,Username attribute is not present in the authentication request
+22015,Workflow,Identity sequence continues to the next IDStore
+22016,Workflow,Identity sequence completed iterating the IDStores
+22017,Workflow,Selected Identity Source is DenyAccess
+22019,Workflow,Identity Policy was evaluated before; Identity Sequence continuing
+22020,Workflow,Configuration error: identity source blank
+22021,Workflow,Configuration error: authentication IDStores list blank
+22022,Workflow,Error in setting fail open options
+22023,Workflow,Proceed to attribute retrieval
+22024,Workflow,Detected error while iterating IDStores but continuing according to Advanced Option
+22025,Workflow,User or host not found but continuing according to Advanced Option
+22027,Workflow,Authentication failed but continuing according to Advanced Option
+22028,Workflow,Authentication failed and the advanced options are ignored
+22034,Workflow,Attribute retrieval failed
+22035,Workflow,Detected error during attribute retrieval; Setting Fail Open option
+22036,Workflow,Retrieved Attributes successfully from current IDStore
+22037,Workflow,Authentication Passed
+22038,Workflow,Skipping the next IDStore for attribute retrieval because it is the one we authenticated against
+22039,Workflow,Invalid workflow sequence type
+22040,Authentication,Wrong password or invalid shared secret
+22041,Authentication,User not found in Internal Identity Store
+22042,Workflow,Authentication failed; dropping according to Advanced Option
+22043,Authentication,Current Identity Store does not support the authentication method; Skipping it
+22044,Workflow,Identity policy result is configured for certificate based authentication methods but received password based
+22045,Workflow,Identity policy result is configured for password based authentication methods but received certificate based authentication request
+22046,Workflow,Identity sequence received a certificate authentication request
+22047,Authentication,Principal username attribute is missing in client certificate
+22048,Authentication,Client certificate binary is missing
+22049,Authentication,Binary comparison of certificates failed
+22050,Workflow,User or host disabled in current IDStore in attribute retrieval mode
+22051,Workflow,"User or host disabled in Internal IDStore, proceed according to Advanced Option"
+22052,Workflow,Authentication IDStore empty after completing authentication
+22053,Workflow,Unknown user or host; dropping according to Advanced Option
+22054,Authentication,Binary comparison of certificates succeeded
+22055,Authentication,Failed to find expected Principal Username X509 Attribute in user's certificate
+22056,Workflow,Subject not found in the applicable identity store(s)
+22057,Workflow,The advanced option that is configured for a failed authentication request is used
+22058,Workflow,The advanced option that is configured for an unknown user is used
+22059,Workflow,The advanced option that is configured for process failure is used
+22060,Workflow,The 'Continue' advanced option is configured in case of a failed authentication request
+22061,Workflow,The 'Reject' advanced option is configured in case of a failed authentication request
+22062,Workflow,The 'Drop' advanced option is configured in case of a failed authentication request
+22063,Authentication,Wrong password
+22064,Workflow,Authentication method is not supported by any applicable identity store(s)
+24000,External-LDAP,Connection established with LDAP server
+24001,External-LDAP,Cannot establish connection with LDAP server
+24002,External-LDAP,Cannot bind connection with administrator credentials
+24003,External-LDAP,Cannot bind connection with anonymous credentials
+24004,External-LDAP,User search finished successfully
+24005,External-LDAP,Host search finished successfully
+24006,External-LDAP,User search ended with an error
+24007,External-LDAP,Host search ended with an error
+24008,External-LDAP,User not found in LDAP Server
+24009,External-LDAP,Host not found in LDAP Server
+24010,External-LDAP,Ambiguous user
+24011,External-LDAP,Ambiguous host
+24014,External-LDAP,Noncompliant attributes detected in LDAP
+24015,External-LDAP,Authenticating user against LDAP Server
+24016,External-LDAP,Looking up user in LDAP Server
+24017,External-LDAP,Looking up host in LDAP Server
+24018,External-LDAP,Cannot retrieve user's certificate
+24019,External-LDAP,LDAP connection error was encountered
+24020,External-LDAP,User authentication against LDAP Server failed since user has entered the wrong password
+24021,External-LDAP,User authentication ended with an error
+24022,External-LDAP,User authentication succeeded
+86022,Guest,Device Registration Web Authentication AUP Accepted
+86023,Guest,Device Registration Web Authentication AUP Declined
+86024,Guest,Device Registration Web Authentication Portal Endpoint Creation Passed
+86025,Guest,Device Registration Web Authentication Portal Endpoint Creation Failed
+86026,Guest,Device Registration Web Authentication Portal CoA Termination Failed
+86027,Guest,Device Registration Web Authentication sending CoA Termination message
+87000,Posture,Received a posture report from an endpoint
+87001,Posture,Posture service received a reassessment report from an endpoint
+87002,Posture,Terminating endpoint session: reassessment timeout
+87003,Posture,Successfully finished updating posture requirements from remote feed URL
+87500,Client Provisioning,Client provisioning succeeded
+87501,Client Provisioning,Client provisioning failed
+87750,EPS,Endpoint Protection Service has received a request to perform an operation
+87751,EPS,Endpoint Protection Service has obtained the result of an operation

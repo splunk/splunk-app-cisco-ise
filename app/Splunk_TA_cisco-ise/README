@@ -1,0 +1,166 @@
+Copyright (C) 2005-2014 Splunk Inc. All Rights Reserved.
+
+Add-on:             Splunk for Cisco ISE
+Last Modified:	    Mar 20, 2014
+Splunk Version:	    6.0 or higher
+Author:             Splunk
+
+=====================
+Important note about visualizations and dashboards 
+=====================
+By default, no visualizations are installed.  To enable dashboards and visualizations, copy the SA-cisco-ise folder from $SPLUNK_HOME/etc/apps/Splunk_TA_cisco-ise/appserver/addons to $SPLUNK_HOME/etc/apps.  Your directory structure should look like the following:
+
+$SPLUNK_HOME/
+    etc/
+        apps/
+            Splunk_TA_cisco-ise
+            SA-cisco-ise
+
+This documentation can be found within the app itself by navigating to ISE Overview -> Cisco ISE Configuration
+
+=====================
+Overview
+=====================
+
+Cisco Identity Services Engine (ISE) produces vast amounts of machine data that can be searched, indexed, and analyzed by Splunk.  The components in this bundle are built to allow you to easily collect the data from an ISE server in addition to providing some message context.  Data is collected by Splunk via a Network Input via a traditional syslog output from the ISE server.
+
+When using this Add-on or any UDP network input in production, there is risk for packet loss and best practices for network inputs should be considered.
+
+This Technology Add-on includes mappings to the Splunk Common Information Model.  These mappings deliver data models that cover the Authentication and Performance categories.
+  
+=====================
+Requirements and Compatibility (versions tested)
+=====================
+
+Splunk 6.0
+Cisco ISE 1.2
+
+
+=====================
+Things you will need
+=====================
+
+  - IP Address of the Splunk system that will receive the data (1.1.1.2 is used in the instructions below)
+  - Port that will be used on the Splunk system as a network input (514 is used the instructions below)
+  - Access to the ISE Administration interface
+  - Network connectivity between Splunk and ISE
+
+
+=====================
+Installation Instructions (Mac or Linux)
+=====================
+
+Ideally, you should set up an independent host that can act as a syslog receiver. You can either set up an independent syslog receiver that sends syslog to a file, or you can accept syslog directly with the Universal Forwarder. This host can run any operating system. If you are running an independent syslog receiver, then you will find that a Linux variant is easier to handle. Configuring an independent syslog receiver is beyond the scope of these instructions.
+
+Splunk does NOT recommend using one of the Splunk indexer or search head hosts except in Proof of Concept or extremely low load scenarios.  The following instructions for enabling a network input on the host Splunk system should only be used for low volume scenarios.
+
+1 - Enable a Network Input on the Splunk system.  Note, configuring Splunk indexers or search heads to receive Syslog directly from ISE is only recommended for low volume situations like POC or test.  It is recommended to use a Splunk 
+	Goto the Settings pull-down, select Data Inputs
+		Select "Add New", to the right of UDP
+			For UDP Port, key in 514 (this is the default syslog port and you can select any you like)
+			For Set Sourcetype, select "From list"
+			From the list pull-down menu, select syslog
+			Click the Save button
+
+	** To confirm functionality, port 514 should now be listening
+
+2a - Install the Cisco ISE Technology Add-on
+	Place this bundle/package in $SPLUNK_HOME/etc/apps and unpack
+	To unpack, run the following command:
+	>tar zxvf ciscoIse.spl
+
+2b - Copy the SA-cisco-ise folder (found in $SPLUNK_HOME/etc/apps/Splunk_TA_cisco-ise/appserver/addons) to $SPLUNK_HOME/etc/apps to enable visualizations.
+
+3a - Enable ISE remote system logging to be sent to the Splunk system (From Chapter 11 of Cisco ISE User Guide, v1.2)
+
+  ====
+  Create remote logging target
+  ====
+  Step 1	Choose Administration > System > Logging > Remote Logging Targets.
+
+  Step 2	Click Add.
+
+  Step 3	Configure the following fields:
+
+  Name:         Splunk   (Target Name - also used below in the category)
+  IP Address:	1.1.1.2  (IP address of Splunk System)
+  Port:		514      (Port used for Network Input)
+  Target Type:	UDP (recommended, NOT the default)
+  Maximum Length	8192	(Events will be broken if you use a smaller amount)
+
+  **NOTE**  All other fields can be tuned at your discretion
+
+  Step 4	Click Save.
+
+  Step 5	Go to the Remote Logging Targets page and verify the creation of the new target.
+  ====	
+
+3b - Add the Remote Logging Target to the proper logging categories
+
+  ====
+  Add new target to your desired Logging Categories
+  ====
+
+  Step 1	Choose Administration > System > Logging > Logging Categories.
+
+  Step 2	Click the radio button next to the category that you want to edit, and click Edit.
+
+  Step 3	Add the above target (Splunk) to the following categories.  These are default log collection settings and can be tuned at your discretion:
+
+  --Category List--
+  AAA Audit 
+    Failed Attemps
+    Passed Authentications
+  AAA Diagnostics 
+  Accounting 
+    RADIUS Accounting
+  Administrative and Operational Audit 
+  Posture and Client Provisioning Audit 
+  Posture and Client Provisioning Diagnostics 
+    MDM
+  Profiler
+  System Diagnostics
+  System Statistics
+  ----------------
+
+  Step 4	Click Save.
+  
+  Step 5	Go to the Logging Categories page and verify the configuration changes that were made to the specific category.
+  ==== 
+
+4 - Confirm that you have successfully installed the Add-on
+
+	To confirm that events are showing up correctly,run a search for "sourcetype=Cisco:ISE:Syslog", over a timerange that is over the last 15 minutes.  If you receive recent events that are identified as being from your ISE server, then you have successfully configured the add-on.
+
+=================
+Troubleshooting tips
+=================
+
+1 - Confirm that the ISE server is sending data to Splunk by searching for "sourcetype=Cisco:ISE:Syslog” and confirming they are from the IP address of the ISE server.
+
+2 - Check or trigger events to be sent to Splunk - you won't see any data unless the ISE server is active.
+
+3 - Confirm that Splunk is enabled to receive data - run "netstat -an" and confirm the port is listening
+
+
+=================
+I'm a Splunk Expert...
+=================
+
+Here is what the package does as an add-on:
+
+** Automatic sourcetyping for syslog events that come from Cisco ISE devices (via UDP input).  All events are classified as Cisco:ISE:Syslog.
+
+** Message code lookup to translate codes to descriptions and classifications (fields used:  MESSAGE_CODE, MESSAGE_TEXT, MESSAGE_CLASS)
+
+** Minor amount of field extractions.  Many  key value pairs are automatically picked (No extractions required)
+
+** Includes instructions on how to turn on events from Cisco ISE
+
+** Does NOT include any pre-enabled inputs.conf (you already have this enabled or know how to)
+
+** Lookup table for mapping events to the Common Information Model
+
+** Dashboard examples - these are intended to demonstrate reporting capabilities
+ 
+=================

@@ -1,0 +1,16 @@
+<datetime>
+
+<define name="_datetimeCiscoISE" extract="year, month, day, hour, minute, second, subsecond, zone">
+<!-- Target TimeFormat: 2014-01-09 22:33:35.123 +00:00 -->
+<text><![CDATA[(\d\d\d\d)-(\d\d)-(\d\d)\s(\d{2}):(\d{2}):(\d{2}).(\d{3})\s(\S+)\s]]></text>
+</define>
+
+
+<timePatterns>
+<use name="_datetimeCiscoISE"/>
+</timePatterns>
+<datePatterns>
+<use name="_datetimeCiscoISE"/>
+</datePatterns>
+
+</datetime>

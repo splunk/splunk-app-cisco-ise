@@ -1,0 +1,150 @@
+<form>
+  <label>ISE System Health</label>
+  
+  <fieldset autoRun="True">
+    
+    <input type="time" searchWhenChanged="true">
+      <label>Time Range:</label>
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+    
+    <input type="text" token="ise_server">
+      <label>ISE Server:</label>
+      <seed>*</seed>
+    </input>
+  </fieldset>
+  
+  <row>
+    <chart>
+      <title>CPU Utilization % </title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
+        timechart span=1m avg(SysStatsUtilizationCpu) as "% Utilized" by ise_servername |
+        rename ise_servername AS "ISE Server"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisY.maximumNumber">100</option>
+      <option name="charting.axisY.minimumNumber">0</option>
+    </chart>
+    
+    <chart>
+      <title>Memory Utilization % </title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
+        timechart span=1m avg(SysStatsUtilizationMemory) as "% Utilized" by ise_servername |
+        rename ise_servername AS "ISE Server"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisY.maximumNumber">100</option>
+      <option name="charting.axisY.minimumNumber">0</option>
+    </chart>
+    
+    <chart>
+      <title>Disk Space Usage % </title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
+        timechart span=1m avg(SysStatsUtilizationDiskSpace) as "% Utilized" by ise_servername |
+        rename ise_servername AS "ISE Server"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.axisY.maximumNumber">100</option>
+      <option name="charting.axisY.minimumNumber">0</option>
+    </chart>
+  </row>
+  
+  <row>
+    <chart>
+      <title>Auth Latency (RADIUS) </title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
+        timechart avg(AverageRadiusRequestLatency) as Seconds by ise_servername |
+        rename ise_servername AS "ISE Server"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <chart>
+      <title>Auth Latency (TACACS) </title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
+        timechart avg(AverageTacacsRequestLatency) as Seconds by ise_servername |
+        rename ise_servername AS "ISE Server"
+      </searchString>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <table>
+      <title>Number of CPUs per ISE server</title>
+      <searchString>
+        eventtype=cisco-ise MESSAGE_CLASS="System-Stats" SysStatsCpuCount="*" ise_servername="$ise_server$" |
+        stats max(SysStatsCpuCount) as "Number of CPUs" by ise_servername |
+        rename ise_servername AS "ISE Server" |
+        head 10
+      </searchString>
+    </table>
+    
+  </row>
+</form>
