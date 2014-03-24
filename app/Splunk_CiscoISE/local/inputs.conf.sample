@@ -1,4 +1,0 @@
-[monitor://$SPLUNK_HOME/etc/apps/Splunk_CiscoISE/LOGS/]
-#host_regex = ^.*\/logs\/[^\/]+\/([^\/]+)\/.*$
-sourcetype=Cisco:ISE:Syslog
-queue=parsingQueue
