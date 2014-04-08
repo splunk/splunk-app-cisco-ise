@@ -61,6 +61,15 @@
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
       <option name="charting.legend.placement">right</option>
+      
+      <drilldown>
+	<link>
+	  <![CDATA[
+	    /app/SA-cisco-ise/ise_failed_auth_location_wired?form.location=$row.Location$&earliest=$earliest$&latest=$latest$
+	  ]]>
+	</link>
+      </drilldown>
+      
     </chart>
     
     <chart>
@@ -82,6 +91,15 @@
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
       <option name="charting.legend.placement">right</option>
+      
+      <drilldown>
+	<link>
+	  <![CDATA[
+	    /app/SA-cisco-ise/ise_failed_auth_location_wireless?form.location=$row.Location$&earliest=$earliest$&latest=$latest$
+	  ]]>
+	</link>
+      </drilldown>
+      
     </chart>
     
     <chart>
@@ -103,6 +121,15 @@
       <option name="charting.layout.splitSeries">0</option>
       <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
       <option name="charting.legend.placement">right</option>
+      
+      <drilldown>
+	<link>
+	  <![CDATA[
+	    /app/SA-cisco-ise/ise_failed_auth_location_virtual?form.location=$row.Location$&earliest=$earliest$&latest=$latest$
+	  ]]>
+	</link>
+      </drilldown>
+      
     </chart>
     
   </row>

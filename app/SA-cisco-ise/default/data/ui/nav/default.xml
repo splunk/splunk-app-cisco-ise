@@ -14,18 +14,18 @@
   <collection label="Authentications">
     <view name="ise_passed_authentications" />
     <collection label="Passed Authentications for a Specific Location">
-      <view name="ise_passed_auth_locaciton_wired" />
-      <view name="ise_passed_auth_locaciton_wireless" />
-      <view name="ise_passed_auth_locaciton_virtual" />
+      <view name="ise_passed_auth_location_wired" />
+      <view name="ise_passed_auth_location_wireless" />
+      <view name="ise_passed_auth_location_virtual" />
     </collection>
     
     <divider />
     
     <view name="ise_failed_authentications" />
     <collection label="Failed Authentications for a Specific Location">
-      <view name="ise_failed_auth_locaciton_wired" />
-      <view name="ise_failed_auth_locaciton_wireless" />
-      <view name="ise_failed_auth_locaciton_virtual" />
+      <view name="ise_failed_auth_location_wired" />
+      <view name="ise_failed_auth_location_wireless" />
+      <view name="ise_failed_auth_location_virtual" />
     </collection>
     
     <divider />
