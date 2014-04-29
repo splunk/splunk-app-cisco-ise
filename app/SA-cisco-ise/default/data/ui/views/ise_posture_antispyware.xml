@@ -43,6 +43,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise AntiSpywareInstalled="*" |
+        fillnull value="NULL" UserName |
         stats count by SystemUser OperatingSystem AntiSpywareInstalled IpAddress MacAddress UserName SystemName |
         `format_field_names`
       </searchString>
@@ -76,6 +77,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise cise_posture_and_client_provisioning_audit |
+        fillnull value="NULL" UserName AntiSpywareInstalled |
         stats count by PostureStatus UserName IpAddress MacAddress PostureReport AntiSpywareInstalled |
         `format_field_names`
       </searchString>

@@ -1,0 +1,52 @@
+<form>
+  <label>Failed Guest Attempts</label>
+
+  <fieldset autoRun="True">
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  
+  <row>
+    <html>
+      <p>This dashboard and these panels display failed guest information by location and provide guest user details.</p>
+    </html>
+  </row>
+
+  <row grouping="2">
+    <chart>
+      <title>Guest Failures</title>
+      <searchString>
+        eventtype=cisco-ise-guest-authentication-failed |
+        chart count by FailureReason
+      </searchString>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    
+    <table>
+      <searchString>
+        eventtype=cisco-ise-guest-authentication-failed |
+	fillnull value="NULL" UserName PortalName UserType |
+        stats count by UserName FailureReason PortalName UserType |
+        `format_field_names`
+      </searchString>
+    </table>
+    
+  </row>
+  
+</form>

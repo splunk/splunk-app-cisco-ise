@@ -1,15 +1,13 @@
 <form>
   <label>Passed Guest Authentications and Corp Guest Authentications for All Users</label>
 
-  <fieldset autoRun="false">
-    
+  <fieldset autoRun="True">
     <input type="time" searchWhenChanged="true">
       <default>
         <earliestTime>-60m@m</earliestTime>
         <latestTime>now</latestTime>
       </default>
     </input>
-    
   </fieldset>
   
   <row>
@@ -43,6 +41,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise-guest-authentication Location="*" IdentityGroup="*" UserType="GuestUser" |
+	fillnull value="NULL" Framed_IP_Address |
 	table AuthenticationIdentityStore Calling_Station_ID EndPointMACAddress Framed_IP_Address IdentityGroup NAS_IP_Address PortalName UserName UserType _time |
         `format_field_names`
       </searchString>
@@ -76,6 +75,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise-guest-authentication UserType="CWA" UserName="*" |
+	fillnull value="NULL" Framed_IP_Address |
 	table UserName Framed_IP_Address AuthenticationIdentityStore IdentityGroup UserType PortalName |
         `format_field_names`
       </searchString>

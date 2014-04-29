@@ -27,7 +27,7 @@
 
   <row>
     <chart>
-      <title>Passed Authentications Wired - $location$</title>
+      <title>Passed Authentications Wireless - $location$</title>
       <searchString>
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Wireless - IEEE 802.11" |
         chart count by AuthenticationMethod |
@@ -63,6 +63,7 @@
       <title>802.1X Authentications</title>
       <searchString>
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Wireless - IEEE 802.11" |
+	fillnull value="NULL" EapAuthentication |
         stats count by AuthenticationMethod EapTunnel EapAuthentication UserName Address EndPointMACAddress EndPointMatchedProfile HostIdentityGroup |
         `format_field_names`
       </searchString>
@@ -85,6 +86,7 @@
       <title>Authentication Details</title>
       <searchString>
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Wireless - IEEE 802.11" |
+	fillnull value="NULL" Called_Station_ID EapAuthentication NAS_Port |
         stats count by AuthenticationMethod EapTunnel EapAuthentication NetworkDeviceGroups NetworkDeviceName NAS_Identifier NAS_Port NAS_IP_Address Called_Station_ID Airespace_Wlan_Id EndPointMatchedProfile UserName |
         `format_field_names`
       </searchString>
@@ -98,6 +100,17 @@
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Wireless - IEEE 802.11" AuthenticationMethod="Lookup" |
         stats count by AuthenticationMethod |
         rename AuthenticationMethod AS "Authentication Method"
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>EAP Chaining Attempts</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Wireless - IEEE 802.11" |
+	stats count by EapTunnel EapAuthentication UseCase EapChainingResult UserName EndPointMACAddress Address EndPointMatchedProfile HostIdentityGroup |
+	`format_field_names`
       </searchString>
     </table>
   </row>

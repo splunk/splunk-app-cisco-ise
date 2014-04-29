@@ -1,7 +1,7 @@
 Copyright (C) 2005-2014 Splunk Inc. All Rights Reserved.
 
 Add-on:             Splunk for Cisco ISE
-Last Modified:	    Mar 20, 2014
+Last Modified:	    Apr 29, 2014
 Splunk Version:	    6.0 or higher
 Author:             Splunk
 
@@ -32,7 +32,7 @@ This Technology Add-on includes mappings to the Splunk Common Information Model.
 Requirements and Compatibility (versions tested)
 =====================
 
-Splunk 6.0
+Splunk 6.x.x
 Cisco ISE 1.2
 
 

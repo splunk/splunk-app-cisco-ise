@@ -64,6 +64,7 @@
       <title>802.1X Authentications</title>
       <searchString>
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Ethernet" |
+	fillnull value="NULL" EapAuthentication |
         stats count by AuthenticationMethod EapTunnel EapAuthentication UserName EndPointMACAddress Address EndPointMatchedProfile HostIdentityGroup |
         `format_field_names`
       </searchString>
@@ -77,6 +78,17 @@
         eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Ethernet" EapAuthentication="EAP-TLS" |
         stats count by AuthenticationMethod EapAuthentication UserName EndPointMACAddress Address EndPointMatchedProfile |
         `format_field_names`
+      </searchString>
+    </table>
+  </row>
+  
+  <row>
+    <table>
+      <title>Authentication Details</title>
+      <searchString>
+        eventtype=cisco-ise-passed-authentication Location="$location$" NAS_Port_Type="Ethernet" |
+	stats count by AuthenticationMethod EapTunnel EapAuthentication NetworkDeviceGroups NetworkDeviceName NAS_IP_Address NAS_Port_Id Called_Station_ID EndPointMatchedProfile UserName |
+	`format_field_names`
       </searchString>
     </table>
   </row>

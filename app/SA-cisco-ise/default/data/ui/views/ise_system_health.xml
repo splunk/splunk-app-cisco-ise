@@ -22,7 +22,7 @@
       <title>CPU Utilization % </title>
       <searchString>
         eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
-        timechart span=1m avg(SysStatsUtilizationCpu) as "% Utilized" by ise_servername |
+        timechart avg(SysStatsUtilizationCpu) as "% Utilized" by ise_servername |
         rename ise_servername AS "ISE Server"
       </searchString>
       <option name="charting.axisTitleX.visibility">collapsed</option>
@@ -46,7 +46,7 @@
       <title>Memory Utilization % </title>
       <searchString>
         eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
-        timechart span=1m avg(SysStatsUtilizationMemory) as "% Utilized" by ise_servername |
+        timechart avg(SysStatsUtilizationMemory) as "% Utilized" by ise_servername |
         rename ise_servername AS "ISE Server"
       </searchString>
       <option name="charting.axisTitleX.visibility">collapsed</option>
@@ -70,7 +70,7 @@
       <title>Disk Space Usage % </title>
       <searchString>
         eventtype=cisco-ise MESSAGE_CLASS="System-Stats" ise_servername="$ise_server$" |
-        timechart span=1m avg(SysStatsUtilizationDiskSpace) as "% Utilized" by ise_servername |
+        timechart avg(SysStatsUtilizationDiskSpace) as "% Utilized" by ise_servername |
         rename ise_servername AS "ISE Server"
       </searchString>
       <option name="charting.axisTitleX.visibility">collapsed</option>

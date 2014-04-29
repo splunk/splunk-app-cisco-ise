@@ -31,6 +31,7 @@
     <divider />
     
     <view name="ise_guest_authentications" />
+    <view name="ise_guest_authentications_failed" />
     
   </collection>
   

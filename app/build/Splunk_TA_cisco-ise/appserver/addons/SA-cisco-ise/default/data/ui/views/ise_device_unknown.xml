@@ -73,6 +73,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise-passed-authentication EndPointMatchedProfile="Unknown" Location="$location$" |
+	fillnull value="NULL" EapAuthentication |
         stats count by EndPointMACAddress UserName IdentityGroup AuthenticationMethod EapAuthentication NAS_IP_Address NAS_Port NetworkDeviceName NetworkDeviceGroups AuthenticationIdentityStore |
         `format_field_names`
       </searchString>
@@ -103,6 +104,7 @@
     <table>
       <searchString>
         eventtype=cisco-ise-failed-authentication EndPointMatchedProfile="Unknown" Location="$location$" |
+	fillnull value="NULL" EapAuthentication |
         stats count by FailureReason EndPointMACAddress UserName IdentityGroup AuthenticationMethod EapAuthentication NAS_Identifier NAS_IP_Address NAS_Port NetworkDeviceName NetworkDeviceGroups  |
         `format_field_names`
       </searchString>

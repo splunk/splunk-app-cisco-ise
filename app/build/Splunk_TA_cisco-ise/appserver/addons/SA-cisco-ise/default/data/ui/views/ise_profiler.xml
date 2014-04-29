@@ -54,7 +54,7 @@
     <chart>
       <title>Profiles by devices for all Users with Registered Devices</title>
       <searchString>
-        eventtype=cisco-ise-profiler DeviceRegistrationStatus="Registered" |
+        eventtype=cisco-ise-profiler DeviceRegistrationStatus="Registered\\" |
         stats count by EndpointPolicy |
         rename EndpointPolicy AS "Endpoint Policy" count AS Count
       </searchString>
@@ -75,7 +75,7 @@
     
     <table>
       <searchString>
-        eventtype=cisco-ise-profiler DeviceRegistrationStatus="Registered" |
+        eventtype=cisco-ise-profiler DeviceRegistrationStatus="Registered\\" |
         stats count by EndpointPolicy PortalUser host_name Description EndpointMacAddress Framed_IP_Address EndpointNADAddress EndpointOUI EndpointSourceEvent dhcp_class_identifier NmapScanCount NmapSubnetScanID |
         `format_field_names`
       </searchString>
@@ -84,7 +84,7 @@
     <chart>
       <title>Profiles by devices for all Users with Non-registered Devices</title>
       <searchString>
-        eventtype=cisco-ise-profiler DeviceRegistrationStatus="NotRegistered" |
+        eventtype=cisco-ise-profiler DeviceRegistrationStatus="NotRegistered\\" |
         stats count by EndpointPolicy |
         rename EndpointPolicy AS "Endpoint Policy" count AS Count
       </searchString>
@@ -105,7 +105,7 @@
     
     <table>
       <searchString>
-        eventtype=cisco-ise-profiler DeviceRegistrationStatus="NotRegistered" |
+        eventtype=cisco-ise-profiler DeviceRegistrationStatus="NotRegistered\\" |
         stats count by DeviceRegistrationStatus EndpointMacAddress EndpointMatchedPolicy EndpointOUI EndpointSourceEvent NAS_Port_Type NmapScanCount NmapSubnetScanID |
         `format_field_names`
       </searchString>
