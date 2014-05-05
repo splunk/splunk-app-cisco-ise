@@ -23,7 +23,7 @@
     <chart>
       <title>Failed Authentications by Locations for all users</title>
       <searchString>
-        eventtype=cisco-ise-failed-authentication Location="*" NAS_Port_Type="*" | chart count by Location
+        eventtype=cisco-ise-failed-authentication NAS_Port_Type="*" | fillnull value="No Location" Location | chart count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
@@ -45,7 +45,7 @@
     <chart>
       <title>Wired Users by Location</title>
       <searchString>
-        eventtype=cisco-ise-failed-authentication Location="*" NAS_Port_Type="Ethernet" |
+        eventtype=cisco-ise-failed-authentication NAS_Port_Type="Ethernet" | fillnull value="No Location" Location |
         chart count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -75,7 +75,7 @@
     <chart>
       <title>Wireless Users by Location</title>
       <searchString>
-        eventtype=cisco-ise-failed-authentication Location="*" NAS_Port_Type="Wireless - IEEE 802.11" |
+        eventtype=cisco-ise-failed-authentication NAS_Port_Type="Wireless - IEEE 802.11" | fillnull value="No Location" Location |
         chart count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -105,7 +105,7 @@
     <chart>
       <title>Virtual,ASA Users by Location</title>
       <searchString>
-        eventtype=cisco-ise-failed-authentication Location="*" NAS_Port_Type="Virtual" |
+        eventtype=cisco-ise-failed-authentication NAS_Port_Type="Virtual" | fillnull value="No Location" Location |
         chart count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
