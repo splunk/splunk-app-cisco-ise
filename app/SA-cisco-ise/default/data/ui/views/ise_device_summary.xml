@@ -67,7 +67,7 @@
     
     <table>
       <searchString>
-        eventtype=cisco-ise NAS_Port_Type="Wireless - IEEE 802.11" |
+        eventtype=cisco-ise NAS_Port_Type="Wireless - IEEE 802.11" | fillnull value="No Location" Location |
         stats count by EndPointMatchedProfile Location |
         sort -count |
         `format_field_names`
@@ -99,7 +99,7 @@
     
     <table>
       <searchString>
-        eventtype=cisco-ise NAS_Port_Type="Ethernet" |
+        eventtype=cisco-ise NAS_Port_Type="Ethernet" | fillnull value="No Location" Location |
         stats count by EndPointMatchedProfile Location |
         `format_field_names`
       </searchString>
