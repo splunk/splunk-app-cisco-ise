@@ -20,7 +20,7 @@
     <chart>
       <title>Guest Access by Location</title>
       <searchString>
-        eventtype=cisco-ise-guest-authentication Location="*" |
+        eventtype=cisco-ise-guest-authentication | fillnull value="No Location" Location |
         chart count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -40,8 +40,8 @@
     
     <table>
       <searchString>
-        eventtype=cisco-ise-guest-authentication Location="*" IdentityGroup="*" UserType="GuestUser" |
-	fillnull value="NULL" Framed_IP_Address |
+        eventtype=cisco-ise-guest-authentication IdentityGroup="*" UserType="GuestUser" |
+	fillnull value="NULL" Framed_IP_Address | fillnull value="No Location" Location| 
 	table AuthenticationIdentityStore Calling_Station_ID EndPointMACAddress Framed_IP_Address IdentityGroup NAS_IP_Address PortalName UserName UserType _time |
         `format_field_names`
       </searchString>
