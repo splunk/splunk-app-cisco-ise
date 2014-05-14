@@ -33,7 +33,7 @@
   <row>
     <chart>
       <title>Location Summary</title>
-      <searchTemplate>eventtype=cisco-ise MESSAGE_CLASS="Passed-Authentication" | stats count by Location</searchTemplate>
+      <searchTemplate>eventtype=cisco-ise MESSAGE_CLASS="Passed-Authentication" | fillnull value="No Location" Location | stats count by Location</searchTemplate>
       <option name="charting.axisTitleX.visibility">visible</option>
       <option name="charting.axisTitleY.visibility">visible</option>
       <option name="charting.axisX.scale">linear</option>
