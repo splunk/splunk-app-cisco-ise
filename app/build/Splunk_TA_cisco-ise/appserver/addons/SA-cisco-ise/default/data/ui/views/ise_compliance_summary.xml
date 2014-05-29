@@ -21,7 +21,7 @@
     <chart>
       <title>Compliant Users by Location</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="Compliant" |
+        eventtype=cisco-ise PostureStatus="Compliant" | fillnull value="No Location" Location |
         stats count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -42,7 +42,7 @@
     <chart>
       <title>Non-Compliant Users by Location</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="NonCompliant" |
+        eventtype=cisco-ise PostureStatus="NonCompliant" | fillnull value="No Location" Location |
         stats count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -63,7 +63,7 @@
     <chart>
       <title>Unknown Users by Location</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="Unknown" |
+        eventtype=cisco-ise PostureStatus="Unknown" | fillnull value="No Location" Location |
         stats count by Location
       </searchString>
       <option name="charting.axisTitleX.visibility">visible</option>
@@ -87,7 +87,7 @@
     <table>
       <title>Compliant Users Details</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="Compliant" |
+        eventtype=cisco-ise PostureStatus="Compliant" | fillnull value="No Location" Location |
         stats count by Location UserName IdentityGroup EndPointMACAddress Calling_Station_ID NAS_Port_Type |
         `format_field_names`
       </searchString>
@@ -98,7 +98,7 @@
     <table>
       <title>Non-Compliant Users Details</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="NonCompliant" |
+        eventtype=cisco-ise PostureStatus="NonCompliant" | fillnull value="No Location" Location |
         stats count by Location UserName IdentityGroup EndPointMACAddress Calling_Station_ID NAS_Port_Type |
         `format_field_names`
       </searchString>
@@ -109,7 +109,7 @@
     <table>
       <title>Unknown Users Details</title>
       <searchString>
-        eventtype=cisco-ise PostureStatus="Unknown" |
+        eventtype=cisco-ise PostureStatus="Unknown" | fillnull value="No Location" Location |
         stats count by Location UserName IdentityGroup EndPointMACAddress Calling_Station_ID NAS_Port_Type |
         `format_field_names`
       </searchString>

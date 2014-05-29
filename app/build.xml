@@ -4,7 +4,7 @@
 
 	<property name="ISEVIEWS" value="SA-cisco-ise"/>
 
-	<property name="VERSION" value="2.0.2"/>
+	<property name="VERSION" value="2.0.3"/>
 	<buildnumber/>
 
 	<property name="build.dir" value="build"/>
