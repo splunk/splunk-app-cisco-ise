@@ -1,140 +1,55 @@
 <dashboard stylesheet="application.css">
-	<label>Cisco ISE Configuration</label>
+	<label>Splunk App for Cisco ISE Configuration</label>
 
 	<row>
 		<html>
-<h2>Steps to Cisco Identity Services Engine for Splunk</h2>
+<h2>Steps to Setup the Splunk App for Cisco Identity Services Engine</h2>
+<p><strong>Important note:</strong> This app is only contains dashboards and reports.  No data is collected by this app.  For Cisco ISE data collection, install and configure the separate <a href="https://apps.splunk.com/app/1915/">Splunk Add-on for Cisco ISE</a></p>
+
+<h1>Overview</h1>
+
+<p>Cisco Identity Services Engine (ISE) is a security policy management and control platform. It automates and simplifies access control and security compliance for wired, wireless, and VPN connectivity.</p>
+
+<p>The Splunk App for Cisco ISE includes sample dashboards and reports for profiling, authentication, system statistics, alarms, and location awareness.  A separate <a href="https://apps.splunk.com/app/1915/">Splunk Add-on for Cisco ISE</a> needs to be installed to collect data from Cisco ISE systems.</p>
+
+<h2>Release Notes</h2>
+
+<p>This version of the Splunk App for Cisco ISE only contains dashboards and reports.  No data collection is performed.  In order to collect data from a Cisco ISE system, install the separate <a href="https://apps.splunk.com/app/1915/">Splunk Add-on for Cisco ISE</a>.</p>
+
+<h3>Support and resource links</h3>
+
+<p><strong>This is a community-supported app.</strong></p>
+
+<p>Access questions and answers at <a href="http://answers.splunk.com/app/questions/1589.html">answers.splunk.com/app/questions/1589.html</a></p>
+
+<p>For general Splunk Enterprise support, see the Splunk Support Programs page:
+<a href="http://www.splunk.com/support">www.splunk.com/support</a></p>
+
+<p>If you have specific questions about the separate Splunk Add-on for Cisco ISE, log a case using the Splunk Support Portal at <a href="https://www.splunk.com/index.php/submit_issue">www.splunk.com/index.php/submit_issue</a></p>
+
+<h1>Installation and Configuration</h1>
+
+<h2>Hardware and software requirements</h2>
+
+<h3>Prerequisites</h3>
+
+<p>Install and configure the <a href="https://apps.splunk.com/app/1915/">Splunk Add-on for Cisco ISE</a>.</p>
+
+<h3>Splunk Enterprise system requirements</h3>
+
+<p>Because this add-on runs on Splunk Enterprise, all of the Splunk Enterprise system requirements apply.</p>
+
+<h2>Installation Steps</h2>
 
 <ol>
-<li>Set up a Log Receiver Host</li>
-<li>Configure the Logging Settings in Cisco ISE</li>
-<li>Configure Splunk for your Environment</li>
+<li>Download and install the Splunk Add-on for Cisco ISE (https://apps.splunk.com/app/1915/).</li>
+<li>Download the Splunk App for Cisco ISE https://apps.splunk.com/app/1589/</li>
+<li>From the Splunk Web interface, click on Apps > Manage Apps to open the Apps Management page.</li>
+<li>Click Install app from file, locate the downloaded file, and click Upload.</li>
 </ol>
 
-<p>Cisco Identity Services Engine (ISE) produces vast amounts of machine data that can be searched, indexed, and analyzed by Splunk.
-The components in this bundle are built to allow you to easily collect the data from an ISE server in addition to providing some message context.
-Data is collected by Splunk via a Network Input via a traditional syslog output from the ISE server.</p>
 
-<p>When using this Add-on or any UDP network input in production, there is risk for packet loss and best practices for network inputs should be considered.</p>
-
-<p>This Technology Add-on includes mappings to the Splunk Common Information Model.  These mappings deliver data models that cover the Authentication and Performance categories.</p>
-
-<h3 style="color:#29688A;font-weight:bold">Set up a Log Receiver Host</h3>
-
-<p>Ideally, you should set up an independent host that can act as a syslog receiver. You can either set up an
-independent syslog receiver that sends syslog to a file, or you can accept syslog directly with the Universal
-Forwarder.  This host can run any operating system.  If you are running an independent syslog receiver, then you
-will find that a Linux variant is easier to handle.  Configuring an independent syslog receiver is beyond the
-scope of these instructions.</p>
-
-<p>Splunk does NOT recommend using one of the Splunk indexer or search head hosts except in Proof of Concept or 
-extremely low load scenarios.  The device may be virtualized, however.</p>
-
-<p>Once you have a log receiver host, ensure you install the latest Splunk 6 Universal Forwarder on that host.
-In addition, you will need to configure a log reader in inputs.conf for the host.  If you have configured an
-independent syslog receiver, then you will use a monitor statement. For example, if you had arranged for your 
-logs to be delivered to a host-specific directory under /var/log/cisco-ise (so that the logs are actually stored 
-as /var/log/cisco-ise/HOST/*.log), then you might use the following:</p>
-
-<pre>
-[monitor:///var/log/cisco-ise/*/*.log]
-host_segment = 4
-source = cisco:ise
-sourcetype = Cisco:ISE:Syslog
-disabled = false
-</pre>
-
-<p>If you are utilizing TCP-based syslog directly to the Universal Forwarder, then you might use the following 
-(where A.B.C.D is the IP address of your Cisco ISE instance and HOST is the hostname to assign to the Cisco 
-ISE instance):</p>
-
-<pre>
-[tcp://A.B.C.D:514]
-host = HOST
-source = cisco:ise
-sourcetype = Cisco:ISE:Syslog
-disabled = false
-</pre>
-
-<p>Please make note of the TCP port that you utilize (in this case, 514) and ensure no software-based 
-firewalls are blocking connections.  We don't recommend using UDP-based syslog - in high-load scenarios,
-messages will be lost.</p>
-
-<p>It is possible to accept syslog from many devices by using a [tcp://:514] stanza - in this case, you
-will need to use a transform to configure the source and sourcetype at index time.  You will need to place
-the Splunk_TA_cisco-ise on the indexing tier as well as the universal forwarder and search heads.</p>
-
-<p>If you wish the logs to go to an index other than main, add an index parameter to the inputs.conf
-stanza.  Ensure the index is created on your indexing tier before you continue.</p>
-
-<h3 style="color:#29688A;font-weight:bold">Configure ISE to send syslog events to the Splunk Server</h3>
-
-<ol>
-<li>Choose Administration -&gt; System -&gt; Logging -&gt; Remote Logging Targets</li>
-<li>Click Add.</li>
-<li>
-Configure the following fields:
-
-<ul>
-  <li>Name: Splunk (Target Name - also used below in the category)</li>
-  <li>IP Address: 1.1.1.2 (IP address of Splunk Forwarder or System)</li>
-  <li>Port: 514 (Port used for Network Input)</li>
-  <li>Target Type: UDP (recommended, NOT the default)</li>
-  <li>Maximum Length: 8192 (Events will be broken if you use a smaller amount)</li>
-  <li>**NOTE**  All other fields can be tuned at your discretion</li>
-</ul>
-</li>
-
-<li>Click Save.</li>
-<li>Go to the Remote Logging Targets page and verify the creation of the new target.</li>
-</ol>
-
-<p style="padding-bottom: 15px"><img src="/static/app/SA-cisco-ise/docs/ise_1.png" /></p>
-
-<h4>Configure the Logging Categories</h4>
-
-<ol>
-<li>Choose Administration -&gt; System -&gt; Logging -&gt; Logging Categories.</li>
-<li>Click the radio button next to the category that you want to edit, and click Edit.</li>
-<li>
-Add the above target (Splunk) to the following categories.  These are default log collection settings and can be tuned at your discretion: <br />
-
-<pre>
-  --Category List--
-  AAA Audit 
-    Failed Attemps
-    Passed Authentications
-  AAA Diagnostics 
-  Accounting 
-    RADIUS Accounting
-  Administrative and Operational Audit 
-  Posture and Client Provisioning Audit 
-  Posture and Client Provisioning Diagnostics 
-    MDM
-  Profiler
-  System Diagnostics
-  System Statistics
-  ----------------
-</pre>
-</li>
-
-<li>Click Save.</li>
-<li>Go to the Logging Categories page and verify the configuration changes that were made to the specific category.</li>
-
-</ol>
-
-<p>These categories will appear in Splunk as “log types” and MESSAGE CODES along with the syslog events.
-These log types and MESSAGE CODES will be used in Splunk's search string field to extract ISE specific information as related to the log types.
-For example, username and authentication methods can be extracted from the log type “Passed Authentications” using these search string fields.</p>
-
-<p style="padding-bottom: 15px"><img src="/static/app/SA-cisco-ise/docs/ise_2.png" /></p>
-
-<h3 style="color:#29688A;font-weight:bold">Configure Splunk for your Environment</h3>
-
-<p>If you have configured Splunk to store the access logs in an alternate index, then you will need to ensure
-that users can find the logs by default.  To do this, you must create a new role. For more information on this
-subject, please see the <a href="http://docs.splunk.com/Documentation/Splunk/6.0.1/Security/SetupuserauthenticationwithSplunk">Splunk 
-Security Manual</a>.</p>
+<p><strong>Note</strong>: ensure the “Upgrade app” checkbox is checked.</p>
 
 		</html>
 	</row>
