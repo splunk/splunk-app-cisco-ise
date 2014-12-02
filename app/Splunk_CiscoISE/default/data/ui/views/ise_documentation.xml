@@ -43,6 +43,7 @@
 
 <ol>
 <li>Download and install the Splunk Add-on for Cisco ISE (https://apps.splunk.com/app/1915/).</li>
+<li>Delete any previous version of the Splunk for Cisco ISE application.</li>
 <li>Download the Splunk App for Cisco ISE https://apps.splunk.com/app/1589/</li>
 <li>From the Splunk Web interface, click on Apps > Manage Apps to open the Apps Management page.</li>
 <li>Click Install app from file, locate the downloaded file, and click Upload.</li>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="SA-cisco-ise" default="package">
-	<property name="APP" value="SA-cisco-ise"/>
+<project name="Splunk_CiscoISE" default="package">
+	<property name="APP" value="Splunk_CiscoISE"/>
 
 	<property name="VERSION" value="2.0.4"/>
 	<buildnumber/>
